@@ -44,12 +44,7 @@ export const HeroPremium: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
       {/* Background Camionnette avec effet stylé */}
-      <motion.div 
-        className="absolute inset-0 pointer-events-none"
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5 }}
-      >
+      <div className="absolute inset-0 pointer-events-none opacity-100">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-[0.15] dark:opacity-[0.08]"
           style={{
@@ -61,7 +56,7 @@ export const HeroPremium: React.FC = () => {
         />
         {/* Gradient overlay pour fondu élégant */}
         <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-orange-50/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 dark:to-transparent" />
-      </motion.div>
+      </div>
 
       {/* Animated Background Gradient Orbs - Desktop only */}
       <div className="absolute inset-0 overflow-hidden hidden lg:block">
