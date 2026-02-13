@@ -1,0 +1,187 @@
+const crypto = require('crypto');
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Optimisation des images - Format WebP et AVIF pour performances maximales
+  images: {
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 31536000, // 1 an de cache pour les images
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+
+  // Headers HTTP pour SEO et sécurité
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          // Sécurité
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(self), interest-cohort=()',
+          },
+          // Performance et SEO
+          {
+            key: 'Link',
+            value: '<https://clefautoliege.be>; rel="canonical"',
+          },
+        ],
+      },
+      // Cache optimisé pour les ressources statiques
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Fichiers SEO avec cache modéré
+      {
+        source: '/(robots.txt|sitemap.xml|humans.txt)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate',
+          },
+        ],
+      },
+    ];
+  },
+
+  // Redirections SEO si nécessaire (éviter le contenu dupliqué)
+  async redirects() {
+    return [
+      // Rediriger www vers non-www (ou l'inverse selon votre préférence)
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.clefautoliege.be',
+          },
+        ],
+        destination: 'https://clefautoliege.be/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
+  // Compression Gzip/Brotli
+  compress: true,
+  
+  // Masquer le header X-Powered-By pour la sécurité
+  poweredByHeader: false,
+  
+  // Mode strict React
+  reactStrictMode: true,
+  
+  // Optimisations expérimentales
+  experimental: {
+    optimizePackageImports: ['@/components', '@/lib'],
+  },
+
+  // Webpack optimizations
+  webpack: (config, { isServer }) => {
+    // Optimisations supplémentaires si nécessaire
+    if (!isServer) {
+      config.optimization = {
+        ...config.optimization,
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            framework: {
+              chunks: 'all',
+              name: 'framework',
+              test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+              priority: 40,
+              enforce: true,
+            },
+            lib: {
+              test(module) {
+                return module.size() > 160000 && /node_modules[/\\]/.test(module.identifier());
+              },
+              name(module) {
+                const hash = crypto.createHash('sha1');
+                hash.update(module.identifier());
+                return hash.digest('hex').substring(0, 8);
+              },
+              priority: 30,
+              minChunks: 1,
+              reuseExistingChunk: true,
+            },
+            commons: {
+              name: 'commons',
+              minChunks: 2,
+              priority: 20,
+            },
+            shared: {
+              name(module, chunks) {
+                return crypto
+                  .createHash('sha1')
+                  .update(chunks.reduce((acc, chunk) => acc + chunk.name, ''))
+                  .digest('hex')
+                  .substring(0, 8);
+              },
+              priority: 10,
+              minChunks: 2,
+              reuseExistingChunk: true,
+            },
+          },
+        },
+      };
+    }
+    
+    return config;
+  },
+}
+
+module.exports = nextConfig

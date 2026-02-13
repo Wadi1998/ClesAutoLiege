@@ -1,0 +1,29 @@
+{
+  "name": "Clef Auto Liège - Serrurier Automobile 24/7",
+  "short_name": "Clef Auto Liège",
+  "description": "Expert en serrurerie automobile à Liège. Intervention rapide 24h/24 et 7j/7.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF6B35",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "automotive"],
+  "lang": "fr-BE",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

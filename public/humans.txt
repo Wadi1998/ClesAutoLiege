@@ -1,0 +1,48 @@
+/* TEAM */
+
+Fondateur & Serrurier Expert: Clef Auto Liège
+Site web: clefautoliege.be
+Localisation: Liège, Belgique
+Contact: 04 93 44 72 05
+
+/* THANKS */
+
+Next.js - Framework React
+Tailwind CSS - Framework CSS
+Vercel - Hébergement
+Google - SEO & Analytics
+
+/* SITE */
+
+Langage: Français (Belgique)
+Doctype: HTML5
+IDE: IntelliJ IDEA Ultimate
+Standards: HTML5, CSS3, ES2023
+Composants: React, TypeScript
+Outils: Next.js 14, Tailwind CSS 3
+Optimisation: SEO, Performance, Accessibilité
+
+/* SERVICES */
+
+Reproduction de clés automobile
+Ouverture de portière sans casse
+Dépannage urgence 24/7
+Réparation de serrures auto
+Programmation clés électroniques
+Extraction de clés cassées
+
+Zone d'intervention: Liège et environs
+Disponibilité: 24h/24, 7j/7
+Téléphone: 04 93 44 72 05
+WhatsApp: +32 493 44 72 05
+
+/* VALUES */
+
+⚡ Rapidité - Intervention en 20-30 minutes
+🎯 Expertise - Plus de 1200 interventions réussies
+💎 Qualité - Équipement professionnel de pointe
+🛡️ Garantie - Satisfaction 100% garantie
+💰 Transparence - Prix fixes, pas de surprises
+⭐ Excellence - Note Google 4.9/5 étoiles
+
+Dernière mise à jour: Février 2026
