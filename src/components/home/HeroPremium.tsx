@@ -16,8 +16,6 @@ export const HeroPremium: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 300], [0, 100]);
-  const y2 = useTransform(scrollY, [0, 300], [0, 50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   // Parallax suiveur de souris (désactivé sur mobile pour performance)
