@@ -99,18 +99,10 @@ export const Footer: React.FC = () => {
 
         {/* Séparateur */}
         <div className="border-t border-gray-700 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
+          <div className="flex justify-center items-center">
+            <p className="text-gray-400 text-sm text-center">
               © {currentYear} Clés Auto Liège. Tous droits réservés.
             </p>
-            <div className="flex gap-6 text-sm">
-              <Link href="/mentions-legales" className="text-gray-400 hover:text-white transition-colors">
-                Mentions légales
-              </Link>
-              <Link href="/politique-confidentialite" className="text-gray-400 hover:text-white transition-colors">
-                Politique de confidentialité
-              </Link>
-            </div>
           </div>
         </div>
       </div>

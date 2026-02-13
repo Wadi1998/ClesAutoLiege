@@ -5,7 +5,6 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { StickyContactBar } from '@/components/shared/StickyContactBar';
 import { ScrollProgress } from '@/components/shared/ScrollProgress';
-import { SocialProof } from '@/components/shared/SocialProof';
 import { SmartFloatingCTA } from '@/components/shared/SmartFloatingCTA';
 import { generateMetadata } from '@/lib/utils/seo';
 
@@ -96,7 +95,6 @@ export default function RootLayout({
         </main>
         <Footer />
         <StickyContactBar />
-        <SocialProof />
         <SmartFloatingCTA />
       </body>
     </html>

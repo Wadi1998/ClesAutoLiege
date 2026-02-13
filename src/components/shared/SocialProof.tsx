@@ -36,7 +36,7 @@ export const SocialProof: React.FC = () => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed bottom-24 right-4 md:right-8 z-40 max-w-xs"
+      className="hidden md:block fixed bottom-24 right-4 md:right-8 z-40 max-w-xs"
     >
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-4 border border-gray-200 dark:border-gray-700">
         {/* Compteur social */}

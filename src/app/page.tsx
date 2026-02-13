@@ -5,7 +5,6 @@ import React from 'react';
 import { HeroPremium } from '@/components/home/HeroPremium';
 import { ServicesGrid } from '@/components/home/ServicesGrid';
 import { StatsCounter } from '@/components/home/StatsCounter';
-import { MascotteVideo } from '@/components/home/MascotteVideo';
 import { InterventionTimeline } from '@/components/home/InterventionTimeline';
 import { WhyNotClassic } from '@/components/home/WhyNotClassic';
 import { ProfessionalEquipment } from '@/components/home/ProfessionalEquipment';
@@ -43,9 +42,6 @@ export default function HomePage() {
       
       {/* Section 3: Stats Counter - Compteurs animés (1200+ interventions, 4.9★) */}
       <StatsCounter />
-      
-      {/* Section 3.5: Vidéo Mascotte - Notre expert en action */}
-      <MascotteVideo />
       
       {/* Section 4: Timeline - Votre intervention en 4 étapes */}
       <InterventionTimeline />

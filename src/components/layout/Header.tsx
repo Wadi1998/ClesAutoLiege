@@ -110,12 +110,6 @@ export const Header: React.FC = () => {
                 </AnimatePresence>
               </div>
 
-              <a
-                href="#contact"
-                className="text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary font-medium transition-colors"
-              >
-                Contact
-              </a>
             </nav>
 
             {/* Actions Desktop */}

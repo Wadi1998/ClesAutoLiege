@@ -129,7 +129,7 @@ export const HeroPremium: React.FC = () => {
         ))}
       </div>
 
-      <motion.div style={{ y: y1, opacity }} className="container mx-auto px-4 py-20 relative z-10">
+      <motion.div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Contenu gauche avec glassmorphism */}
           <div className="text-center lg:text-left">
@@ -276,7 +276,6 @@ export const HeroPremium: React.FC = () => {
 
           {/* Mascotte droite avec parallax */}
           <motion.div
-            style={{ y: y2 }}
             variants={scaleIn}
             initial="hidden"
             animate="visible"
