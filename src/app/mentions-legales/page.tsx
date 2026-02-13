@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import { Shield, Mail, Phone, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Mentions Légales | Clef Auto Liège',
-  description: 'Mentions légales de Clef Auto Liège - Serrurier automobile professionnel à Liège, Belgique.',
+  title: 'Mentions Légales | Clés Auto Liège',
+  description: 'Mentions légales de Clés Auto Liège - Serrurier automobile professionnel à Liège, Belgique.',
 };
 
 export default function MentionsLegalesPage() {
@@ -26,7 +26,7 @@ export default function MentionsLegalesPage() {
             <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 space-y-4">
               <div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Raison sociale</h3>
-                <p className="text-gray-600 dark:text-gray-400">Clef Auto Liège</p>
+                <p className="text-gray-600 dark:text-gray-400">Clés Auto Liège</p>
               </div>
 
               <div>
@@ -93,7 +93,7 @@ export default function MentionsLegalesPage() {
                 Les marques, logos, graphismes et images reproduits sur ce site sont la propriété de leurs 
                 titulaires respectifs. Toute reproduction, distribution, modification, adaptation, 
                 retransmission ou publication, même partielle, de ces différents éléments est strictement 
-                interdite sans l'accord écrit de Clef Auto Liège.
+                interdite sans l'accord écrit de Clés Auto Liège.
               </p>
             </div>
           </section>

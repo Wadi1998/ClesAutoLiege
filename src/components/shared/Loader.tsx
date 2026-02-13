@@ -40,7 +40,7 @@ export const Loader: React.FC = () => {
 
       {/* Texte de chargement */}
       <h2 className="text-2xl font-bold font-heading text-gray-900 dark:text-white mb-4">
-        Clef Auto Liège
+        Clés Auto Liège
       </h2>
 
       {/* Dots animés */}

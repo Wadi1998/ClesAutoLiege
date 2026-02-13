@@ -18,7 +18,7 @@ export const SmartFloatingCTA: React.FC = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
-          className="fixed bottom-4 left-4 md:left-8 z-50"
+          className="hidden md:flex fixed bottom-4 left-4 md:left-8 z-50"
         >
           {isAggressive ? (
             // CTA Agressif - Grande urgence

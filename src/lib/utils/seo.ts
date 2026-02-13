@@ -28,7 +28,7 @@ export const generateMetadata = ({
   article,
 }: SEOProps): Metadata => {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
-  const fullTitle = title.includes('Clef Auto Liège') ? title : `${title} | Clef Auto Liège`;
+  const fullTitle = title.includes('Clés Auto Liège') ? title : `${title} | Clés Auto Liège`;
   
   // Générer une description optimale (entre 150-160 caractères)
   const optimizedDescription = description.length > 160 
@@ -39,9 +39,9 @@ export const generateMetadata = ({
     title: fullTitle,
     description: optimizedDescription,
     keywords: keywords.join(', '),
-    authors: [{ name: 'Clef Auto Liège', url: siteUrl }],
-    creator: 'Clef Auto Liège',
-    publisher: 'Clef Auto Liège',
+    authors: [{ name: 'Clés Auto Liège', url: siteUrl }],
+    creator: 'Clés Auto Liège',
+    publisher: 'Clés Auto Liège',
     formatDetection: {
       telephone: true,
       email: true,
@@ -63,7 +63,7 @@ export const generateMetadata = ({
       type: ogType as any,
       locale: 'fr_BE',
       url: canonical || siteUrl,
-      siteName: 'Clef Auto Liège',
+      siteName: 'Clés Auto Liège',
       title: fullTitle,
       description: optimizedDescription,
       images: [
@@ -134,7 +134,7 @@ export const generateLocalBusinessSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${siteUrl}/#organization`,
-    name: 'Clef Auto Liège',
+    name: 'Clés Auto Liège',
     alternateName: ['Serrurier Auto Liège', 'Clés Auto Liège', 'Clef Voiture Liège'],
     image: {
       '@type': 'ImageObject',
@@ -215,7 +215,7 @@ export const generateLocalBusinessSchema = () => {
             description: 'Duplication de tous types de clés auto, transpondeurs et télécommandes',
             provider: {
               '@type': 'LocalBusiness',
-              name: 'Clef Auto Liège',
+              name: 'Clés Auto Liège',
             },
           },
         },
@@ -227,7 +227,7 @@ export const generateLocalBusinessSchema = () => {
             description: 'Ouverture non destructive en cas de clés enfermées',
             provider: {
               '@type': 'LocalBusiness',
-              name: 'Clef Auto Liège',
+              name: 'Clés Auto Liège',
             },
           },
         },
@@ -239,7 +239,7 @@ export const generateLocalBusinessSchema = () => {
             description: 'Intervention rapide jour et nuit',
             provider: {
               '@type': 'LocalBusiness',
-              name: 'Clef Auto Liège',
+              name: 'Clés Auto Liège',
             },
           },
         },
@@ -251,7 +251,7 @@ export const generateLocalBusinessSchema = () => {
             description: 'Réparation et remplacement de serrures automobiles',
             provider: {
               '@type': 'LocalBusiness',
-              name: 'Clef Auto Liège',
+              name: 'Clés Auto Liège',
             },
           },
         },
@@ -263,7 +263,7 @@ export const generateLocalBusinessSchema = () => {
             description: 'Programmation de clés à transpondeur et télécommandes',
             provider: {
               '@type': 'LocalBusiness',
-              name: 'Clef Auto Liège',
+              name: 'Clés Auto Liège',
             },
           },
         },
@@ -275,7 +275,7 @@ export const generateLocalBusinessSchema = () => {
             description: 'Extraction professionnelle sans dommage',
             provider: {
               '@type': 'LocalBusiness',
-              name: 'Clef Auto Liège',
+              name: 'Clés Auto Liège',
             },
           },
         },
@@ -309,7 +309,7 @@ export const generateServiceSchema = (serviceName: string, serviceDescription: s
     serviceType: serviceName,
     provider: {
       '@type': 'LocalBusiness',
-      name: 'Clef Auto Liège',
+      name: 'Clés Auto Liège',
       telephone: '+32493447205',
       url: siteUrl,
     },

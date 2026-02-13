@@ -83,7 +83,7 @@ export const MascotteInteractive: React.FC<MascotteInteractiveProps> = ({
       >
         <img 
           src="/mascotte.webp" 
-          alt="Mascotte Clef Auto Liège - Expert serrurerie automobile" 
+          alt="Mascotte Clés Auto Liège - Expert serrurerie automobile" 
           className="w-80 h-80 md:w-96 md:h-96 lg:w-[500px] lg:h-[500px] object-contain drop-shadow-2xl"
         />
 

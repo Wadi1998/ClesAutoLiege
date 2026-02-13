@@ -17,11 +17,11 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src="/logo.png" 
-                alt="Clef Auto Liège - Logo" 
+                alt="Clés Auto Liège - Logo" 
                 className="w-12 h-12 object-contain"
               />
               <div>
-                <h3 className="text-xl font-bold font-heading">Clef Auto Liège</h3>
+                <h3 className="text-xl font-bold font-heading">Clés Auto Liège</h3>
                 <p className="text-sm text-gray-400">Disponible 24h/24</p>
               </div>
             </div>
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} Clef Auto Liège. Tous droits réservés.
+              © {currentYear} Clés Auto Liège. Tous droits réservés.
             </p>
             <div className="flex gap-6 text-sm">
               <Link href="/mentions-legales" className="text-gray-400 hover:text-white transition-colors">

@@ -12,7 +12,7 @@ import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, gen
 const slug = 'reproduction-cles';
 
 export const metadata = generateMetadata({
-  title: `Reproduction de Clés Automobile à Liège | Clef Auto Liège`,
+  title: `Reproduction de Clés Automobile à Liège | Clés Auto Liège`,
   description: `Service de reproduction de clés auto à Liège. Duplication de clés transpondeur, télécommandes. Intervention rapide 24/7. ☎️ 04 93 44 72 05`,
   keywords: ['reproduction clé voiture Liège', 'dupliquer clé auto', 'clé transpondeur', 'copie clé télécommande'],
 });

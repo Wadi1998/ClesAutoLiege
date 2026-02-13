@@ -1,13 +1,13 @@
 /**
- * Metadata centralisé pour le site Clef Auto Liège
+ * Metadata centralisé pour le site Clés Auto Liège
  * Utilisé pour générer les metadata SEO de manière cohérente
  */
 
 export const siteMetadata = {
-  title: 'Clef Auto Liège | Serrurier Automobile 24/7 - Intervention Rapide',
+  title: 'Clés Auto Liège | Serrurier Automobile 24/7 - Intervention Rapide',
   description: 'Expert en serrurerie automobile à Liège. Reproduction clés, ouverture portière, dépannage 24h/24. Intervention rapide dans toute la région. ☎️ 04 93 44 72 05',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be',
-  siteName: 'Clef Auto Liège',
+  siteName: 'Clés Auto Liège',
   locale: 'fr_BE',
   type: 'website',
   phone: process.env.NEXT_PUBLIC_PHONE_DISPLAY || '04 93 44 72 05',
@@ -36,7 +36,7 @@ export const siteMetadata = {
   
   // Business info
   business: {
-    name: 'Clef Auto Liège',
+    name: 'Clés Auto Liège',
     city: 'Liège',
     region: 'Wallonie',
     country: 'Belgium',

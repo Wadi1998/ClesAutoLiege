@@ -19,7 +19,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be'),
   ...generateMetadata({
-    title: 'Clef Auto Liège | Serrurier Automobile 24/7 - Intervention Rapide',
+    title: 'Clés Auto Liège | Serrurier Automobile 24/7 - Intervention Rapide',
     description: 'Expert en serrurerie automobile à Liège. Reproduction clés, ouverture portière, dépannage 24h/24. Intervention rapide dans toute la région. ☎️ 04 93 44 72 05',
     keywords: ['serrurier auto Liège', 'clé voiture Liège', 'ouverture portière Liège', 'dépannage auto Liège', 'serrurerie automobile Liège', 'clé transpondeur Liège', 'serrurier 24/7 Liège', 'reproduction clé voiture Liège', 'programmation clé électronique Liège'],
   }),
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Clef Auto Liège',
+    title: 'Clés Auto Liège',
     startupImage: [
       '/logo.png',
     ],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
   },
   other: {
-    'author': 'Clef Auto Liège',
+    'author': 'Clés Auto Liège',
     'reply-to': 'contact@clefautoliege.be',
     'link': 'https://clefautoliege.be/humans.txt',
   },

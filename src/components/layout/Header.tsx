@@ -51,12 +51,12 @@ export const Header: React.FC = () => {
             <Link href="/" className="flex items-center gap-3 group">
               <img 
                 src="/logo.png" 
-                alt="Clef Auto Liège - Logo" 
+                alt="Clés Auto Liège - Logo" 
                 className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
               />
               <div className="hidden sm:block">
                 <h1 className="text-xl font-bold font-heading text-gray-900 dark:text-white">
-                  Clef Auto Liège
+                  Clés Auto Liège
                 </h1>
                 <p className="text-xs text-gray-600 dark:text-gray-400">Disponible 24/7</p>
               </div>

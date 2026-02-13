@@ -10,7 +10,6 @@ import { InterventionTimeline } from '@/components/home/InterventionTimeline';
 import { WhyNotClassic } from '@/components/home/WhyNotClassic';
 import { ProfessionalEquipment } from '@/components/home/ProfessionalEquipment';
 import { Guarantees } from '@/components/home/Guarantees';
-import { PricingGrid } from '@/components/home/PricingGrid';
 import { MarquesCarousel } from '@/components/home/MarquesCarousel';
 import { GoogleReviewsLive } from '@/components/home/GoogleReviewsLive';
 import { WhyChooseUs } from '@/components/home/WhyChooseUs';
@@ -59,9 +58,6 @@ export default function HomePage() {
       
       {/* Section 7: Garanties - Trust & assurances */}
       <Guarantees />
-      
-      {/* Section 8: Grille Tarifaire - Transparence des prix */}
-      <PricingGrid />
       
       {/* Section 9: Carrousel Marques - 50+ marques */}
       <MarquesCarousel />
