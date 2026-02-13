@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
-import { mascotteBreathing } from '@/lib/utils/animations';
 
 interface MascotteInteractiveProps {
   showBubble?: boolean;
@@ -51,7 +50,7 @@ export const MascotteInteractive: React.FC<MascotteInteractiveProps> = ({
 
   return (
     <div className="relative">
-      {/* Bulle de dialogue */}
+      {/* Bulle de dialogue - Desktop only */}
       <AnimatePresence>
         {showMessage && (
           <motion.div
@@ -59,7 +58,7 @@ export const MascotteInteractive: React.FC<MascotteInteractiveProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 10 }}
             transition={{ duration: 0.3 }}
-            className="absolute -top-16 left-1/2 -translate-x-1/2 bg-white dark:bg-gray-800 px-4 py-2 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap"
+            className="hidden lg:block absolute -top-16 left-1/2 -translate-x-1/2 bg-white dark:bg-gray-800 px-4 py-2 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 whitespace-nowrap"
           >
             <p className="text-sm font-medium text-gray-900 dark:text-white flex items-center gap-2">
               <MessageCircle className="w-4 h-4 text-orange-primary" />
@@ -73,12 +72,8 @@ export const MascotteInteractive: React.FC<MascotteInteractiveProps> = ({
 
       {/* Mascotte */}
       <motion.div
-        variants={mascotteBreathing}
-        initial="initial"
-        animate="animate"
         onClick={handleClick}
         className="relative cursor-pointer"
-        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         <img 
