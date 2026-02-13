@@ -17,8 +17,11 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src="/logo.png" 
-                alt="Clés Auto Liège - Logo" 
+                alt="Clés Auto Liège"
+                width={48}
+                height={48}
                 className="w-12 h-12 object-contain"
+                loading="lazy"
               />
               <div>
                 <h3 className="text-xl font-bold font-heading">Clés Auto Liège</h3>

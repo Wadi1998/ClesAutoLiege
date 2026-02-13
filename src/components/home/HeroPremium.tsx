@@ -20,14 +20,18 @@ export const HeroPremium: React.FC = () => {
   const y2 = useTransform(scrollY, [0, 300], [0, 50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // Parallax suiveur de souris
+  // Parallax suiveur de souris (désactivé sur mobile pour performance)
   useEffect(() => {
+    // Vérifier si on est sur desktop
+    const isDesktop = window.innerWidth >= 1024;
+    if (!isDesktop) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 20;
       const y = (e.clientY / window.innerHeight - 0.5) * 20;
       setMousePosition({ x, y });
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
@@ -105,25 +109,25 @@ export const HeroPremium: React.FC = () => {
         }} />
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+      {/* Floating particles - Réduit pour performance */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-orange-primary/30 rounded-full"
+            className="absolute w-2 h-2 bg-orange-primary/20 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
               y: [-20, -40, -20],
-              opacity: [0.2, 0.5, 0.2],
-              scale: [1, 1.5, 1],
+              opacity: [0.2, 0.4, 0.2],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 4,
               repeat: Infinity,
               delay: Math.random() * 2,
+              ease: "easeInOut"
             }}
           />
         ))}
