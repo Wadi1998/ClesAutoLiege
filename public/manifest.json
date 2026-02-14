@@ -1,12 +1,12 @@
 {
   "name": "Clef Auto Liège - Serrurier Automobile 24/7",
   "short_name": "Clef Auto Liège",
-  "description": "Expert en serrurerie automobile à Liège. Intervention rapide 24h/24 et 7j/7.",
+  "description": "Expert en serrurerie automobile à Liège. Intervention rapide 24h/24 et 7j/7. Reproduction clés, ouverture portière, dépannage urgence.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#FF6B35",
-  "orientation": "portrait",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "/logo.png",
@@ -21,9 +21,42 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["business", "automotive"],
+  "screenshots": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["business", "automotive", "utilities"],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "lang": "fr-BE",
   "dir": "ltr",
   "scope": "/",
-  "prefer_related_applications": false
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Appeler maintenant",
+      "short_name": "Appel",
+      "description": "Contactez-nous pour une intervention rapide",
+      "url": "/",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Nos Services",
+      "short_name": "Services",
+      "description": "Découvrez tous nos services",
+      "url": "/services/reproduction-cles",
+      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+    }
+  ],
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "protocol_handlers": [
+    {
+      "protocol": "tel",
+      "url": "tel:+32493447205"
+    }
+  ]
 }

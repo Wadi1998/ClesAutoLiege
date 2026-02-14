@@ -1,19 +1,11 @@
-# Security Policy for Clef Auto Liège
-# Notre politique de sécurité et de divulgation responsable
-
-Contact: mailto:security@clefautoliege.be
+Contact: mailto:contact@clefautoliege.be
 Contact: tel:+32493447205
 Expires: 2027-12-31T23:59:59.000Z
 Preferred-Languages: fr, en
 Canonical: https://clefautoliege.be/.well-known/security.txt
-
-# Politique
 Policy: https://clefautoliege.be/mentions-legales
+Acknowledgments: Merci de nous signaler tout problème de sécurité de manière responsable.
 
-# Acknowledgments
-Acknowledgments: https://clefautoliege.be/mentions-legales
-
-# Informations
-# Clef Auto Liège prend la sécurité très au sérieux.
-# Si vous découvrez une vulnérabilité de sécurité, veuillez nous contacter.
-# Nous vous répondrons dans les 48 heures.
+# Security Policy for Clés Auto Liège
+# Si vous découvrez une vulnérabilité, contactez-nous directement.
+# Nous nous engageons à répondre dans les 48 heures.

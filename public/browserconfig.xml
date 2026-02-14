@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="/logo.png"/>
+      <square150x150logo src="/logo.png"/>
+      <square310x310logo src="/logo.png"/>
+      <wide310x150logo src="/logo.png"/>
+      <TileColor>#FF6B35</TileColor>
+    </tile>
+    <badge>
+      <polling-uri src="https://clefautoliege.be/api/badge"/>
+      <frequency>30</frequency>
+    </badge>
+    <notification>
+      <polling-uri src="https://clefautoliege.be/api/notification"/>
+      <frequency>30</frequency>
+    </notification>
+  </msapplication>
+</browserconfig>

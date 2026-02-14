@@ -5,7 +5,13 @@ import React, { lazy, Suspense } from 'react';
 import { HeroPremium } from '@/components/home/HeroPremium';
 import { ServicesGrid } from '@/components/home/ServicesGrid';
 import { StructuredData } from '@/components/seo/StructuredData';
-import { generateLocalBusinessSchema, generateFAQSchema } from '@/lib/utils/seo';
+import { 
+  generateLocalBusinessSchema, 
+  generateFAQSchema,
+  generateOrganizationSchema,
+  generateWebSiteSchema,
+  generateProfessionalServiceSchema
+} from '@/lib/utils/seo';
 import { globalFAQs } from '@/lib/data/faqs';
 
 // Lazy loading des composants below the fold pour optimiser le chargement initial
@@ -30,6 +36,9 @@ const LoadingFallback = () => (
 
 export default function HomePage() {
   const localBusinessSchema = generateLocalBusinessSchema();
+  const organizationSchema = generateOrganizationSchema();
+  const websiteSchema = generateWebSiteSchema();
+  const professionalServiceSchema = generateProfessionalServiceSchema();
   const faqSchema = generateFAQSchema(globalFAQs.map(faq => ({
     question: faq.question,
     answer: faq.answer
@@ -37,8 +46,11 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Schema Markup SEO */}
+      {/* Schema Markup SEO - Configuration complète pour maximiser la visibilité */}
       <StructuredData data={localBusinessSchema} />
+      <StructuredData data={organizationSchema} />
+      <StructuredData data={websiteSchema} />
+      <StructuredData data={professionalServiceSchema} />
       <StructuredData data={faqSchema} />
       
       {/* Section 1: Hero Premium - Impact maximum avec parallax et glassmorphism */}

@@ -54,6 +54,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
+    // Page Réalisations - Portfolio pour crédibilité
+    {
+      url: `${baseUrl}/realisations`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
     // Pages légales - BASSE PRIORITÉ mais nécessaires
     {
       url: `${baseUrl}/mentions-legales`,

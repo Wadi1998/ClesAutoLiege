@@ -1,0 +1,12 @@
+# ads.txt pour Clés Auto Liège
+# Ce fichier est utilisé pour la publicité programmatique
+# et améliore la confiance des moteurs de recherche
+
+# Google AdSense (à configurer avec votre Publisher ID)
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Déclaration du contact
+contact=contact@clefautoliege.be
+
+# Déclaration de l'inventaire
+# Remplacer les IDs par vos propres identifiants si vous utilisez AdSense

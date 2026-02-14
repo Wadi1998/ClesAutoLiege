@@ -15,7 +15,7 @@ export const siteMetadata = {
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP || '32493447205',
   slogan: 'Votre partenaire de confiance à Liège - Intervention 24/7',
   
-  // Keywords SEO principaux
+  // Keywords SEO principaux - Longue traîne optimisée
   keywords: [
     'serrurier auto Liège',
     'serrurerie automobile Liège',
@@ -26,7 +26,18 @@ export const siteMetadata = {
     'clé transpondeur',
     'serrurier 24/7',
     'dépannage urgence auto',
-    'programmation clé électronique'
+    'programmation clé électronique',
+    'serrurier automobile Herstal',
+    'clé perdue voiture',
+    'clé cassée dans serrure',
+    'ouverture voiture sans clé',
+    'double clé voiture',
+    'télécommande voiture',
+    'clé BMW Liège',
+    'clé Mercedes Liège',
+    'clé Volkswagen Liège',
+    'serrurier auto pas cher',
+    'intervention rapide serrurier auto'
   ],
   
   // Social media
