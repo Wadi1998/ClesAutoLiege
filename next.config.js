@@ -1,5 +1,3 @@
-const crypto = require('crypto');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Optimisation des images - Format WebP et AVIF pour performances maximales

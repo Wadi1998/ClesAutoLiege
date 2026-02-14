@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { GalleryPremium } from '@/components/home/GalleryPremium';
+import { GalleryPremium } from '@/components/realisations/GalleryPremium';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { Breadcrumb } from '@/components/seo/Breadcrumb';
 
