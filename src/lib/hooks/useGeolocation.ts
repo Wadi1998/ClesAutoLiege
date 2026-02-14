@@ -39,8 +39,7 @@ export const useGeolocation = (): LocationData => {
           });
         }
       } catch (error) {
-        // Fallback silencieux
-        console.debug('Geolocation not available, using default');
+        // Fallback silencieux vers Liège
       }
     };
 

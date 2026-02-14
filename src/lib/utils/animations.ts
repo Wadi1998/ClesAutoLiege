@@ -36,24 +36,6 @@ export const scaleIn: Variants = {
   }
 };
 
-export const slideInLeft: Variants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
-  }
-};
-
-export const slideInRight: Variants = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { duration: 0.6, ease: 'easeOut' }
-  }
-};
-
 // Animation avec stagger (cascade)
 export const staggerContainer: Variants = {
   hidden: { opacity: 0 },

@@ -4,24 +4,6 @@
  */
 
 /**
- * Précharge les ressources critiques
- */
-export function preloadCriticalResources() {
-  if (typeof window === 'undefined') return;
-
-  // Précharger les images critiques
-  const criticalImages = ['/logo.png', '/mascotte.webp'];
-  
-  criticalImages.forEach((src) => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = src;
-    document.head.appendChild(link);
-  });
-}
-
-/**
  * Optimise les ressources en fonction de la connexion
  */
 export function optimizeForConnection() {
@@ -99,29 +81,6 @@ export function debounce<T extends (...args: any[]) => any>(
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => func(...args), delay);
   };
-}
-
-/**
- * Précharge une route pour la navigation
- */
-export function prefetchRoute(href: string) {
-  if (typeof window === 'undefined') return;
-
-  const link = document.createElement('link');
-  link.rel = 'prefetch';
-  link.href = href;
-  document.head.appendChild(link);
-}
-
-/**
- * Nettoie les event listeners inutiles
- */
-export function cleanupEventListeners() {
-  if (typeof window === 'undefined') return;
-
-  // Nettoie les listeners qui ne sont plus nécessaires
-  window.removeEventListener('scroll', () => {});
-  window.removeEventListener('resize', () => {});
 }
 
 /**
