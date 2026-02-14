@@ -103,30 +103,6 @@ export default function RootLayout({
         <meta name="geo.position" content="50.6326;5.5797" />
         <meta name="ICBM" content="50.6326, 5.5797" />
         
-        {/* Dublin Core Metadata pour bibliothèques et moteurs de recherche académiques */}
-        <meta name="DC.title" content="Clés Auto Liège - Serrurier Automobile 24/7" />
-        <meta name="DC.creator" content="Clés Auto Liège" />
-        <meta name="DC.subject" content="Serrurerie automobile, Clés voiture, Dépannage auto" />
-        <meta name="DC.description" content="Expert en serrurerie automobile à Liège. Reproduction clés, ouverture portière, dépannage 24h/24." />
-        <meta name="DC.publisher" content="Clés Auto Liège" />
-        <meta name="DC.contributor" content="Clés Auto Liège" />
-        <meta name="DC.date" content="2026-02-14" />
-        <meta name="DC.type" content="Service" />
-        <meta name="DC.format" content="text/html" />
-        <meta name="DC.identifier" content="https://cles-auto-liege.be" />
-        <meta name="DC.language" content="fr-BE" />
-        <meta name="DC.coverage" content="Liège, Belgique" />
-        <meta name="DC.rights" content="Copyright 2026 Clés Auto Liège" />
-        
-        {/* Additional SEO Meta Tags */}
-        <meta name="rating" content="general" />
-        <meta name="distribution" content="global" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="expires" content="never" />
-        <meta name="language" content="French" />
-        <meta name="target" content="all" />
-        <meta name="audience" content="all" />
-        <meta name="coverage" content="Worldwide" />
         
         {/* Apple Mobile Web App Meta Tags */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,13 +114,6 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#FF6B35" />
         <meta name="msapplication-TileImage" content="/logo.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="msapplication-tooltip" content="Clés Auto Liège - Serrurier 24/7" />
-        <meta name="msapplication-starturl" content="/" />
-        <meta name="msapplication-navbutton-color" content="#FF6B35" />
-        
-        {/* Pinterest Meta Tags */}
-        <meta name="pinterest-rich-pin" content="true" />
-        <meta property="og:see_also" content="https://www.facebook.com/clefautoliege" />
         
         {/* Preconnect pour améliorer les performances */}
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
