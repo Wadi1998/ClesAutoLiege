@@ -120,9 +120,19 @@ const nextConfig = {
   // Mode strict React
   reactStrictMode: true,
   
+  // Optimisation des performances
+  swcMinify: true,
+  
   // Optimisations expérimentales
   experimental: {
-    optimizePackageImports: ['@/components', '@/lib'],
+    optimizePackageImports: ['@/components', '@/lib', 'lucide-react', 'framer-motion'],
+  },
+  
+  // Optimisations du compilateur
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
   },
 
   // Webpack optimizations

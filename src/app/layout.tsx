@@ -8,11 +8,22 @@ import { ScrollProgress } from '@/components/shared/ScrollProgress';
 import { SmartFloatingCTA } from '@/components/shared/SmartFloatingCTA';
 import { generateMetadata } from '@/lib/utils/seo';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+// Optimisation des polices avec display swap et subsets optimaux
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial']
+});
+
 const poppins = Poppins({ 
   weight: ['600', '700', '800'],
   subsets: ['latin'],
-  variable: '--font-poppins'
+  variable: '--font-poppins',
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial']
 });
 
 export const metadata: Metadata = {

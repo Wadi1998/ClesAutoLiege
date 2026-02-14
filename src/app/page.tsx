@@ -1,24 +1,32 @@
 'use client';
 
-import React from 'react';
-// Composants Premium
+import React, { lazy, Suspense } from 'react';
+// Composants critiques chargés immédiatement (above the fold)
 import { HeroPremium } from '@/components/home/HeroPremium';
 import { ServicesGrid } from '@/components/home/ServicesGrid';
-import { StatsCounter } from '@/components/home/StatsCounter';
-import { InterventionTimeline } from '@/components/home/InterventionTimeline';
-import { WhyNotClassic } from '@/components/home/WhyNotClassic';
-import { ProfessionalEquipment } from '@/components/home/ProfessionalEquipment';
-import { Guarantees } from '@/components/home/Guarantees';
-import { MarquesCarousel } from '@/components/home/MarquesCarousel';
-import { GoogleReviewsLive } from '@/components/home/GoogleReviewsLive';
-import { WhyChooseUs } from '@/components/home/WhyChooseUs';
-import { ZoneIntervention } from '@/components/home/ZoneIntervention';
-import { FAQSection } from '@/components/home/FAQSection';
-import { CTAFinal } from '@/components/home/CTAFinal';
-// SEO
 import { StructuredData } from '@/components/seo/StructuredData';
 import { generateLocalBusinessSchema, generateFAQSchema } from '@/lib/utils/seo';
 import { globalFAQs } from '@/lib/data/faqs';
+
+// Lazy loading des composants below the fold pour optimiser le chargement initial
+const StatsCounter = lazy(() => import('@/components/home/StatsCounter').then(mod => ({ default: mod.StatsCounter })));
+const InterventionTimeline = lazy(() => import('@/components/home/InterventionTimeline').then(mod => ({ default: mod.InterventionTimeline })));
+const WhyNotClassic = lazy(() => import('@/components/home/WhyNotClassic').then(mod => ({ default: mod.WhyNotClassic })));
+const ProfessionalEquipment = lazy(() => import('@/components/home/ProfessionalEquipment').then(mod => ({ default: mod.ProfessionalEquipment })));
+const Guarantees = lazy(() => import('@/components/home/Guarantees').then(mod => ({ default: mod.Guarantees })));
+const MarquesCarousel = lazy(() => import('@/components/home/MarquesCarousel').then(mod => ({ default: mod.MarquesCarousel })));
+const GoogleReviewsLive = lazy(() => import('@/components/home/GoogleReviewsLive').then(mod => ({ default: mod.GoogleReviewsLive })));
+const WhyChooseUs = lazy(() => import('@/components/home/WhyChooseUs').then(mod => ({ default: mod.WhyChooseUs })));
+const ZoneIntervention = lazy(() => import('@/components/home/ZoneIntervention').then(mod => ({ default: mod.ZoneIntervention })));
+const FAQSection = lazy(() => import('@/components/home/FAQSection').then(mod => ({ default: mod.FAQSection })));
+const CTAFinal = lazy(() => import('@/components/home/CTAFinal').then(mod => ({ default: mod.CTAFinal })));
+
+// Loader minimal pour le lazy loading
+const LoadingFallback = () => (
+  <div className="w-full h-32 flex items-center justify-center">
+    <div className="animate-pulse text-gray-400">Chargement...</div>
+  </div>
+);
 
 export default function HomePage() {
   const localBusinessSchema = generateLocalBusinessSchema();
@@ -40,37 +48,59 @@ export default function HomePage() {
       <ServicesGrid />
       
       {/* Section 3: Stats Counter - Compteurs animés (1200+ interventions, 4.9★) */}
-      <StatsCounter />
+      <Suspense fallback={<LoadingFallback />}>
+        <StatsCounter />
+      </Suspense>
       
       {/* Section 4: Timeline - Votre intervention en 4 étapes */}
-      <InterventionTimeline />
+      <Suspense fallback={<LoadingFallback />}>
+        <InterventionTimeline />
+      </Suspense>
       
       {/* Section 5: Pourquoi pas un serrurier classique - Autorité */}
-      <WhyNotClassic />
+      <Suspense fallback={<LoadingFallback />}>
+        <WhyNotClassic />
+      </Suspense>
       
       {/* Section 6: Équipement professionnel - Crédibilité */}
-      <ProfessionalEquipment />
+      <Suspense fallback={<LoadingFallback />}>
+        <ProfessionalEquipment />
+      </Suspense>
       
       {/* Section 7: Garanties - Trust & assurances */}
-      <Guarantees />
+      <Suspense fallback={<LoadingFallback />}>
+        <Guarantees />
+      </Suspense>
       
       {/* Section 9: Carrousel Marques - 50+ marques */}
-      <MarquesCarousel />
+      <Suspense fallback={<LoadingFallback />}>
+        <MarquesCarousel />
+      </Suspense>
       
       {/* Section 10: Avis Google LIVE - Reviews temps réel */}
-      <GoogleReviewsLive />
+      <Suspense fallback={<LoadingFallback />}>
+        <GoogleReviewsLive />
+      </Suspense>
       
       {/* Section 11: Pourquoi me choisir - Trust signals */}
-      <WhyChooseUs />
+      <Suspense fallback={<LoadingFallback />}>
+        <WhyChooseUs />
+      </Suspense>
       
       {/* Section 12: Zone d'intervention - SEO local */}
-      <ZoneIntervention />
+      <Suspense fallback={<LoadingFallback />}>
+        <ZoneIntervention />
+      </Suspense>
       
       {/* Section 14: FAQ - Questions fréquentes */}
-      <FAQSection />
+      <Suspense fallback={<LoadingFallback />}>
+        <FAQSection />
+      </Suspense>
       
       {/* Section 15: CTA Final - Conversion ultime */}
-      <CTAFinal />
+      <Suspense fallback={<LoadingFallback />}>
+        <CTAFinal />
+      </Suspense>
     </>
   );
 }
