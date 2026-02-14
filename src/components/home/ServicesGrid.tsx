@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Key, DoorOpen, AlertCircle, Settings, Cpu, Wrench } from 'lucide-react';
@@ -13,8 +13,11 @@ const iconMap: { [key: string]: any } = {
   Key, DoorOpen, AlertCircle, Settings, Cpu, Wrench
 };
 
-export const ServicesGrid: React.FC = () => {
+export const ServicesGrid: React.FC = React.memo(() => {
   const { ref, inView } = useScrollAnimation();
+
+  // Mémoiser le container animation state
+  const animationState = useMemo(() => inView ? "visible" : "hidden", [inView]);
 
   return (
     <section id="services" className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -22,7 +25,7 @@ export const ServicesGrid: React.FC = () => {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={inView ? "visible" : "hidden"}
+          animate={animationState}
           variants={staggerContainer}
         >
           <div className="text-center mb-16">
@@ -38,8 +41,12 @@ export const ServicesGrid: React.FC = () => {
             {services.map((service) => {
               const Icon = iconMap[service.icon];
               return (
-                <motion.div key={service.id} variants={staggerItem}>
-                  <Link href={`/services/${service.slug}`}>
+                <motion.div 
+                  key={service.id} 
+                  variants={staggerItem}
+                  style={{ willChange: inView ? 'transform, opacity' : 'auto' }}
+                >
+                  <Link href={`/services/${service.slug}`} prefetch={false}>
                     <Card hover className="h-full">
                       <div className="flex flex-col h-full">
                         <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/20 rounded-2xl flex items-center justify-center mb-4">
@@ -65,4 +72,6 @@ export const ServicesGrid: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+ServicesGrid.displayName = 'ServicesGrid';

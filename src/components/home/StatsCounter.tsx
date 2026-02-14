@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Award, Users, Clock, Star } from 'lucide-react';
+import { useIsDesktop } from '@/lib/hooks/useMediaQuery';
 
 interface Stat {
   icon: React.ReactNode;
@@ -43,7 +44,7 @@ const stats: Stat[] = [
   }
 ];
 
-const Counter: React.FC<{ value: number; suffix: string; duration?: number }> = ({ 
+const Counter: React.FC<{ value: number; suffix: string; duration?: number }> = React.memo(({ 
   value, 
   suffix, 
   duration = 2000 
@@ -75,35 +76,47 @@ const Counter: React.FC<{ value: number; suffix: string; duration?: number }> = 
     return () => cancelAnimationFrame(animationFrame);
   }, [isInView, value, duration]);
 
+  const displayValue = useMemo(
+    () => count.toFixed(value % 1 !== 0 ? 1 : 0),
+    [count, value]
+  );
+
   return (
     <span ref={ref} className="font-bold">
-      {count.toFixed(value % 1 !== 0 ? 1 : 0)}{suffix}
+      {displayValue}{suffix}
     </span>
   );
-};
+});
 
-export const StatsCounter: React.FC = () => {
+Counter.displayName = 'Counter';
+
+export const StatsCounter: React.FC = React.memo(() => {
+  const isDesktop = useIsDesktop();
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-blue-dark to-blue-medium dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
-      {/* Animated background patterns */}
-      <div className="absolute inset-0 opacity-10">
-        <motion.div
-          className="absolute top-0 left-1/4 w-96 h-96 bg-orange-primary rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, delay: 2 }}
-        />
-      </div>
+      {/* Animated background patterns - Desktop only */}
+      {isDesktop && (
+        <div className="absolute inset-0 opacity-10">
+          <motion.div
+            className="absolute top-0 left-1/4 w-96 h-96 bg-orange-primary rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity }}
+            style={{ willChange: 'transform, opacity' }}
+          />
+          <motion.div
+            className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity, delay: 2 }}
+            style={{ willChange: 'transform, opacity' }}
+          />
+        </div>
+      )}
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Titre */}
@@ -130,7 +143,7 @@ export const StatsCounter: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              whileHover={isDesktop ? { scale: 1.05, y: -5 } : {}}
               className="relative group"
             >
               {/* Card avec glassmorphism */}
@@ -150,8 +163,10 @@ export const StatsCounter: React.FC = () => {
                   {stat.label}
                 </p>
 
-                {/* Glow effect on hover */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity -z-10`} />
+                {/* Glow effect on hover - Desktop only */}
+                {isDesktop && (
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity -z-10`} />
+                )}
               </div>
             </motion.div>
           ))}
@@ -170,7 +185,7 @@ export const StatsCounter: React.FC = () => {
           </p>
           <motion.a
             href="tel:+32493447205"
-            whileHover={{ scale: 1.05 }}
+            whileHover={isDesktop ? { scale: 1.05 } : {}}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 bg-white text-blue-dark px-8 py-4 rounded-full font-bold shadow-2xl hover:shadow-white/20 transition-all"
           >
@@ -181,4 +196,6 @@ export const StatsCounter: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+StatsCounter.displayName = 'StatsCounter';

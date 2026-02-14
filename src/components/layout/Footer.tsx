@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, MapPin, Clock } from 'lucide-react';
 import { services } from '@/lib/data/services';
 import { PhoneButton } from '@/components/shared/PhoneButton';
 import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = React.memo(() => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -15,14 +16,17 @@ export const Footer: React.FC = () => {
           {/* Colonne 1 - À propos */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/logo.png" 
-                alt="Clés Auto Liège"
-                width={48}
-                height={48}
-                className="w-12 h-12 object-contain"
-                loading="lazy"
-              />
+              <div className="relative w-12 h-12">
+                <Image 
+                  src="/logo.png" 
+                  alt="Clés Auto Liège"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                  loading="lazy"
+                  quality={85}
+                />
+              </div>
               <div>
                 <h3 className="text-xl font-bold font-heading">Clés Auto Liège</h3>
                 <p className="text-sm text-gray-400">Disponible 24h/24</p>
@@ -46,6 +50,7 @@ export const Footer: React.FC = () => {
                   <Link
                     href={`/services/${service.slug}`}
                     className="text-gray-300 hover:text-orange-primary transition-colors text-sm"
+                    prefetch={false}
                   >
                     {service.title}
                   </Link>
@@ -111,4 +116,6 @@ export const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { DarkModeToggle } from '@/components/shared/DarkModeToggle';
@@ -13,13 +14,26 @@ export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
+  // Optimisation du scroll avec RAF et throttle
   useEffect(() => {
+    let rafId: number;
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        rafId = requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   useEffect(() => {
@@ -47,16 +61,19 @@ export const Header: React.FC = () => {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo - Optimisé avec next/image */}
             <Link href="/" className="flex items-center gap-3 group">
-              <img 
-                src="/logo.png" 
-                alt="Clés Auto Liège" 
-                width={48}
-                height={48}
-                className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
-                loading="eager"
-              />
+              <div className="relative w-12 h-12">
+                <Image 
+                  src="/logo.png" 
+                  alt="Clés Auto Liège" 
+                  width={48}
+                  height={48}
+                  className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  priority
+                  quality={90}
+                />
+              </div>
               <div className="hidden sm:block">
                 <h1 className="text-xl font-bold font-heading text-gray-900 dark:text-white">
                   Clés Auto Liège
@@ -74,13 +91,17 @@ export const Header: React.FC = () => {
                 Accueil
               </Link>
 
-              {/* Services Dropdown */}
+              {/* Services Dropdown - Optimisé */}
               <div
                 className="relative"
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary font-medium transition-colors">
+                <button 
+                  className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary font-medium transition-colors"
+                  aria-expanded={isServicesOpen}
+                  aria-haspopup="true"
+                >
                   Services
                   <ChevronDown className="w-4 h-4" />
                 </button>
@@ -91,14 +112,16 @@ export const Header: React.FC = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.15 }}
                       className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
+                      style={{ willChange: 'transform, opacity' }}
                     >
                       {services.map((service) => (
                         <Link
                           key={service.id}
                           href={`/services/${service.slug}`}
                           className="block px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border-b border-gray-100 dark:border-gray-700 last:border-b-0"
+                          prefetch={false}
                         >
                           <p className="font-semibold text-gray-900 dark:text-white text-sm">
                             {service.title}
@@ -147,14 +170,14 @@ export const Header: React.FC = () => {
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Optimisé avec will-change */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-30 lg:hidden"
           >
             {/* Overlay */}
@@ -170,6 +193,7 @@ export const Header: React.FC = () => {
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
               className="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-white dark:bg-gray-900 shadow-2xl overflow-y-auto"
+              style={{ willChange: 'transform' }}
             >
               <div className="p-6">
                 {/* Header */}
@@ -191,6 +215,7 @@ export const Header: React.FC = () => {
                     href="/"
                     onClick={closeMobileMenu}
                     className="block px-4 py-3 rounded-xl font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    prefetch={false}
                   >
                     Accueil
                   </Link>
@@ -206,6 +231,7 @@ export const Header: React.FC = () => {
                         href={`/services/${service.slug}`}
                         onClick={closeMobileMenu}
                         className="block px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        prefetch={false}
                       >
                         {service.title}
                       </Link>
@@ -216,6 +242,7 @@ export const Header: React.FC = () => {
                     href="/realisations"
                     onClick={closeMobileMenu}
                     className="block px-4 py-3 rounded-xl font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    prefetch={false}
                   >
                     Nos Réalisations
                   </Link>
