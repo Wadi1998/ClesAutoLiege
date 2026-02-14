@@ -73,5 +73,5 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemaps - Déclaration explicite
-Sitemap: https://clefautoliege.be/sitemap.xml
-Host: https://clefautoliege.be
+Sitemap: https://cles-auto-liege.be/sitemap.xml
+Host: https://cles-auto-liege.be

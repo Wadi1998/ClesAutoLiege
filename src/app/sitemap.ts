@@ -3,7 +3,7 @@ import { services } from '@/lib/data/services';
 import { communes } from '@/lib/data/communes';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   const currentDate = new Date();
   
   // Pages services dynamiques

@@ -27,7 +27,7 @@ export const generateMetadata = ({
   noindex = false,
   article,
 }: SEOProps): Metadata => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   const fullTitle = title.includes('Clés Auto Liège') ? title : `${title} | Clés Auto Liège`;
   
   // Générer une description optimale (entre 150-160 caractères)
@@ -128,7 +128,7 @@ export const generateMetadata = ({
 };
 
 export const generateLocalBusinessSchema = () => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -301,7 +301,7 @@ export const generateLocalBusinessSchema = () => {
 };
 
 export const generateServiceSchema = (serviceName: string, serviceDescription: string, serviceUrl: string) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -346,7 +346,7 @@ export const generateFAQSchema = (faqs: Array<{ question: string; answer: string
 };
 
 export const generateBreadcrumbSchema = (items: Array<{ name: string; url: string }>) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -361,7 +361,7 @@ export const generateBreadcrumbSchema = (items: Array<{ name: string; url: strin
 };
 
 export const generateOrganizationSchema = () => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -422,7 +422,7 @@ export const generateOrganizationSchema = () => {
 };
 
 export const generateWebSiteSchema = () => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -447,7 +447,7 @@ export const generateWebSiteSchema = () => {
 };
 
 export const generateReviewSchema = (reviews: Array<{ author: string; rating: number; reviewBody: string; datePublished: string }>) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return reviews.map((review) => ({
     '@context': 'https://schema.org',
@@ -485,7 +485,7 @@ export const generateReviewSchema = (reviews: Array<{ author: string; rating: nu
 };
 
 export const generateProfessionalServiceSchema = () => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -528,7 +528,7 @@ export const generateProfessionalServiceSchema = () => {
 };
 
 export const generateVideoObjectSchema = (videoUrl: string, videoTitle: string, videoDescription: string, thumbnailUrl: string) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -551,7 +551,7 @@ export const generateVideoObjectSchema = (videoUrl: string, videoTitle: string, 
 };
 
 export const generateItemListSchema = (items: Array<{ name: string; url: string; description: string; image?: string }>) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -577,7 +577,7 @@ export const generateItemListSchema = (items: Array<{ name: string; url: string;
 };
 
 export const generateHowToSchema = (name: string, steps: Array<{ name: string; text: string; image?: string }>) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',
@@ -598,7 +598,7 @@ export const generateHowToSchema = (name: string, steps: Array<{ name: string; t
 };
 
 export const generateOfferSchema = (serviceName: string, price: string, description: string) => {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be';
   
   return {
     '@context': 'https://schema.org',

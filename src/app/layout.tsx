@@ -31,7 +31,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://clefautoliege.be'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://cles-auto-liege.be'),
   ...generateMetadata({
     title: 'Clés Auto Liège | Serrurier Automobile 24/7 - Intervention Rapide',
     description: 'Expert en serrurerie automobile à Liège. Reproduction clés, ouverture portière, dépannage 24h/24. Intervention rapide dans toute la région. ☎️ 04 93 44 72 05',

@@ -57,7 +57,7 @@ const nextConfig = {
           // Performance et SEO
           {
             key: 'Link',
-            value: '<https://clefautoliege.be>; rel="canonical"',
+            value: '<https://cles-auto-liege.be>; rel="canonical"',
           },
         ],
       },
@@ -102,10 +102,10 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'www.clefautoliege.be',
+            value: 'www.cles-auto-liege.be',
           },
         ],
-        destination: 'https://clefautoliege.be/:path*',
+        destination: 'https://cles-auto-liege.be/:path*',
         permanent: true,
       },
     ];
