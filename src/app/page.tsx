@@ -12,7 +12,6 @@ import { Guarantees } from '@/components/home/Guarantees';
 import { MarquesCarousel } from '@/components/home/MarquesCarousel';
 import { GoogleReviewsLive } from '@/components/home/GoogleReviewsLive';
 import { WhyChooseUs } from '@/components/home/WhyChooseUs';
-import { GalleryPremium } from '@/components/home/GalleryPremium';
 import { ZoneIntervention } from '@/components/home/ZoneIntervention';
 import { FAQSection } from '@/components/home/FAQSection';
 import { CTAFinal } from '@/components/home/CTAFinal';
@@ -64,10 +63,7 @@ export default function HomePage() {
       {/* Section 11: Pourquoi me choisir - Trust signals */}
       <WhyChooseUs />
       
-      {/* Section 12: Galerie Premium - Portfolio avec slider horizontal */}
-      <GalleryPremium />
-      
-      {/* Section 13: Zone d'intervention - SEO local */}
+      {/* Section 12: Zone d'intervention - SEO local */}
       <ZoneIntervention />
       
       {/* Section 14: FAQ - Questions fréquentes */}

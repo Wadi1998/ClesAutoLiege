@@ -113,6 +113,13 @@ export const Header: React.FC = () => {
                 </AnimatePresence>
               </div>
 
+              <Link
+                href="/realisations"
+                className="text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary font-medium transition-colors"
+              >
+                Nos Réalisations
+              </Link>
+
             </nav>
 
             {/* Actions Desktop */}
@@ -204,6 +211,14 @@ export const Header: React.FC = () => {
                       </Link>
                     ))}
                   </div>
+
+                  <Link
+                    href="/realisations"
+                    onClick={closeMobileMenu}
+                    className="block px-4 py-3 rounded-xl font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                  >
+                    Nos Réalisations
+                  </Link>
                 </nav>
 
                 {/* CTA */}
