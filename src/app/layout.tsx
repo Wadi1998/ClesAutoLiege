@@ -14,7 +14,8 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
   preload: true,
-  fallback: ['system-ui', 'arial']
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true, // Optimisation du layout shift
 });
 
 const poppins = Poppins({ 
@@ -23,7 +24,8 @@ const poppins = Poppins({
   variable: '--font-poppins',
   display: 'swap',
   preload: true,
-  fallback: ['system-ui', 'arial']
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true, // Optimisation du layout shift
 });
 
 export const metadata: Metadata = {
@@ -67,15 +69,9 @@ export default function RootLayout({
   return (
     <html lang="fr-BE" className={`${inter.variable} ${poppins.variable}`}>
       <head>
-        {/* Preconnect pour les ressources externes critiques */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        
-        {/* Préchargement des ressources critiques */}
-        <link rel="preload" href="/logo.png" as="image" type="image/png" />
-        <link rel="preload" href="/mascotte.webp" as="image" type="image/webp" />
+        {/* Préchargement des ressources critiques - Optimisé avec fetchpriority */}
+        <link rel="preload" href="/logo.png" as="image" type="image/png" fetchPriority="high" />
+        <link rel="preload" href="/mascotte.webp" as="image" type="image/webp" fetchPriority="high" />
         
         {/* Theme colors pour PWA et navigateurs */}
         <meta name="theme-color" content="#FF6B35" media="(prefers-color-scheme: light)" />
@@ -84,8 +80,14 @@ export default function RootLayout({
         {/* Humans.txt et Security.txt */}
         <link type="text/plain" rel="author" href="/humans.txt" />
         
-        {/* Optimisation du viewport pour mobile */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+        {/* Optimisation du viewport pour mobile - Amélioré */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes, viewport-fit=cover" />
+        
+        {/* Resource hints pour améliorer les performances */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Google Site Verification (à configurer) */}
         {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (

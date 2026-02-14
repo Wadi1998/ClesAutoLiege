@@ -30,7 +30,7 @@
   --card-dark: rgba(255, 255, 255, 0.05);
 }
 
-/* Base Styles */
+/* Base Styles - Optimisés pour performance */
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +46,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Optimisation GPU pour les animations */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -85,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #1A2332 0%, #2C3E50 100%);
 }
 
-/* Animations personnalisées */
+/* Animations personnalisées - Optimisées avec will-change et GPU */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -98,33 +101,33 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 30px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translate3d(0, -30px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale3d(0.9, 0.9, 1);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -137,21 +140,33 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Utility Classes */
+/* Utility Classes - Optimisées avec will-change */
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out;
+  will-change: opacity;
 }
 
 .animate-slide-up {
   animation: slideUp 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 .animate-slide-down {
   animation: slideDown 0.6s ease-out;
+  will-change: transform, opacity;
 }
 
 .animate-scale-in {
   animation: scaleIn 0.5s ease-out;
+  will-change: transform, opacity;
+}
+
+/* Retirer will-change après animation pour performance */
+.animate-fade-in,
+.animate-slide-up,
+.animate-slide-down,
+.animate-scale-in {
+  animation-fill-mode: forwards;
 }
 
 /* Accessibility - Reduced Motion */
@@ -186,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
 }
 
-/* Scrollbar Styling */
+/* Scrollbar Styling - Optimisé */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -198,6 +213,7 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb {
   background: var(--orange-primary);
   border-radius: 5px;
+  transition: background 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -206,6 +222,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .dark ::-webkit-scrollbar-track {
   background: var(--bg-secondary-dark);
+}
+
+/* Performance: Cache les éléments hors de l'écran */
+@media (max-width: 768px) {
+  .lg\:block {
+    content-visibility: auto;
+  }
+}
+
+/* Optimisation du rendu des images */
+img {
+  content-visibility: auto;
 }
 
 /* Print Styles */

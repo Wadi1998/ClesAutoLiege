@@ -125,7 +125,7 @@ const nextConfig = {
   
   // Optimisations expérimentales
   experimental: {
-    optimizePackageImports: ['@/components', '@/lib', 'lucide-react', 'framer-motion'],
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   
   // Optimisations du compilateur
@@ -135,9 +135,9 @@ const nextConfig = {
     } : false,
   },
 
-  // Webpack optimizations
+  // Webpack optimizations - Amélioré
   webpack: (config, { isServer }) => {
-    // Optimisations supplémentaires si nécessaire
+    // Optimisations supplémentaires
     if (!isServer) {
       config.optimization = {
         ...config.optimization,
@@ -145,6 +145,8 @@ const nextConfig = {
         runtimeChunk: 'single',
         splitChunks: {
           chunks: 'all',
+          maxInitialRequests: 25,
+          minSize: 20000,
           cacheGroups: {
             default: false,
             vendors: false,
@@ -166,6 +168,13 @@ const nextConfig = {
               },
               priority: 30,
               minChunks: 1,
+              reuseExistingChunk: true,
+            },
+            // Framer Motion dans son propre chunk
+            framerMotion: {
+              test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+              name: 'framer-motion',
+              priority: 35,
               reuseExistingChunk: true,
             },
             commons: {

@@ -9,29 +9,39 @@ import { MascotteInteractive } from '@/components/shared/MascotteInteractive';
 import { fadeInUp, fadeInDown, scaleIn } from '@/lib/utils/animations';
 import { useTimeOfDay } from '@/lib/hooks/useTimeOfDay';
 import { useGeolocation } from '@/lib/hooks/useGeolocation';
+import { useIsDesktop } from '@/lib/hooks/useMediaQuery';
 
 export const HeroPremium: React.FC = () => {
   const timeOfDay = useTimeOfDay();
   const location = useGeolocation();
+  const isDesktop = useIsDesktop();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // Parallax suiveur de souris (désactivé sur mobile pour performance)
+  // Parallax suiveur de souris (desktop uniquement avec throttle)
   useEffect(() => {
-    // Vérifier si on est sur desktop
-    const isDesktop = window.innerWidth >= 1024;
     if (!isDesktop) return;
 
+    let rafId: number;
     const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      setMousePosition({ x, y });
+      if (rafId) return; // Throttle avec requestAnimationFrame
+      
+      rafId = requestAnimationFrame(() => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        setMousePosition({ x, y });
+        rafId = 0;
+      });
     };
+    
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [isDesktop]);
 
   // Messages dynamiques selon l'heure
   const getTimeMessage = () => {
@@ -58,73 +68,82 @@ export const HeroPremium: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-orange-50/80 to-transparent dark:from-gray-900 dark:via-gray-900/80 dark:to-transparent" />
       </div>
 
-      {/* Animated Background Gradient Orbs - Desktop only */}
-      <div className="absolute inset-0 overflow-hidden hidden lg:block">
-        <motion.div
-          style={{
-            x: mousePosition.x,
-            y: mousePosition.y,
-          }}
-          className="absolute -top-40 -left-40 w-96 h-96 bg-orange-primary/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-        <motion.div
-          style={{
-            x: -mousePosition.x,
-            y: -mousePosition.y,
-          }}
-          className="absolute -bottom-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 1,
-          }}
-        />
-      </div>
-
-      {/* Glassmorphism Pattern Overlay - Desktop only */}
-      <div className="absolute inset-0 opacity-5 hidden lg:block">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF6B35' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
-
-      {/* Floating particles - Réduit pour performance */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
-        {[...Array(6)].map((_, i) => (
+      {/* Animated Background Gradient Orbs - Desktop only avec GPU acceleration */}
+      {isDesktop && (
+        <div className="absolute inset-0 overflow-hidden">
           <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-orange-primary/20 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              x: mousePosition.x,
+              y: mousePosition.y,
+              willChange: 'transform',
             }}
+            className="absolute -top-40 -left-40 w-96 h-96 bg-orange-primary/20 rounded-full blur-3xl"
             animate={{
-              y: [-20, -40, -20],
-              opacity: [0.2, 0.4, 0.2],
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
             }}
             transition={{
-              duration: 4,
+              duration: 8,
               repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
+              ease: 'easeInOut',
             }}
           />
-        ))}
-      </div>
+          <motion.div
+            style={{
+              x: -mousePosition.x,
+              y: -mousePosition.y,
+              willChange: 'transform',
+            }}
+            className="absolute -bottom-40 -right-40 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 1,
+            }}
+          />
+        </div>
+      )}
+
+      {/* Glassmorphism Pattern Overlay - Desktop only */}
+      {isDesktop && (
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF6B35' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+        </div>
+      )}
+
+      {/* Floating particles - Desktop seulement, réduit pour performance */}
+      {isDesktop && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(4)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-orange-primary/20 rounded-full"
+              style={{
+                left: `${20 + i * 25}%`,
+                top: `${30 + i * 15}%`,
+                willChange: 'transform, opacity',
+              }}
+              animate={{
+                y: [-20, -40, -20],
+                opacity: [0.2, 0.4, 0.2],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                delay: i * 0.5,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <motion.div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -197,7 +216,7 @@ export const HeroPremium: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* CTA Buttons avec effets premium */}
+            {/* CTA Buttons avec effets premium - optimisés */}
             <motion.div
               variants={scaleIn}
               initial="hidden"
@@ -206,11 +225,13 @@ export const HeroPremium: React.FC = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
               <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={isDesktop ? { scale: 1.05, y: -5 } : {}}
                 whileTap={{ scale: 0.95 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-primary to-red-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+                {isDesktop && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-primary to-red-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+                )}
                 <div className="relative">
                   <PhoneButton
                     size="lg"
@@ -221,11 +242,13 @@ export const HeroPremium: React.FC = () => {
               </motion.div>
 
               <motion.div
-                whileHover={{ scale: 1.05, y: -5 }}
+                whileHover={isDesktop ? { scale: 1.05, y: -5 } : {}}
                 whileTap={{ scale: 0.95 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+                {isDesktop && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
+                )}
                 <div className="relative">
                   <WhatsAppButton
                     size="lg"
@@ -250,7 +273,7 @@ export const HeroPremium: React.FC = () => {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileHover={isDesktop ? { scale: 1.1, y: -2 } : {}}
                   className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-gray-800/60 backdrop-blur-md border border-white/20 shadow-lg"
                 >
                   <span className="text-lg">{item.icon}</span>
@@ -271,7 +294,7 @@ export const HeroPremium: React.FC = () => {
             </motion.p>
           </div>
 
-          {/* Mascotte droite avec parallax */}
+          {/* Mascotte droite avec parallax optimisé */}
           <motion.div
             variants={scaleIn}
             initial="hidden"
@@ -280,18 +303,21 @@ export const HeroPremium: React.FC = () => {
             className="flex justify-center lg:justify-end relative"
           >
             <motion.div
-              animate={{
+              animate={isDesktop ? {
                 y: [0, -20, 0],
-              }}
+              } : {}}
               transition={{
                 duration: 4,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
+              style={{ willChange: isDesktop ? 'transform' : 'auto' }}
               className="relative"
             >
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-primary/30 to-transparent blur-3xl rounded-full scale-150" />
+              {/* Glow effect - Desktop uniquement */}
+              {isDesktop && (
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-primary/30 to-transparent blur-3xl rounded-full scale-150" />
+              )}
               <MascotteInteractive />
             </motion.div>
           </motion.div>
