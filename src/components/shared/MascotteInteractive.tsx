@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
@@ -16,7 +16,7 @@ export const MascotteInteractive: React.FC<MascotteInteractiveProps> = ({
   const [showMessage, setShowMessage] = useState(false);
   const [clickCount, setClickCount] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (showBubble) {
       const timer = setTimeout(() => {
         setShowMessage(true);
