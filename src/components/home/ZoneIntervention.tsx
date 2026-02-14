@@ -6,11 +6,8 @@ import Link from 'next/link';
 import { communes } from '@/lib/data/communes';
 
 export const ZoneIntervention: React.FC = () => {
-  // Communes supplémentaires sans landing page
-  const extraCommunes = ['Jupille', 'Wandre', 'Vottem', 'Rocourt', 'Glain'];
-
   return (
-    <section className="py-16 md:py-24 bg-white dark:bg-blue-dark">
+    <section id="zone-intervention" className="py-16 md:py-24 bg-white dark:bg-blue-dark">
       <div className="container mx-auto px-4">
         {/* En-tête */}
         <div className="text-center mb-16">
@@ -102,18 +99,6 @@ export const ZoneIntervention: React.FC = () => {
                     {commune.name}
                   </span>
                 </Link>
-              ))}
-              {/* Communes supplémentaires sans page */}
-              {extraCommunes.map((commune, index) => (
-                <div
-                  key={`extra-${index}`}
-                  className="flex items-center gap-2 bg-gray-light dark:bg-blue-medium/30 rounded-lg px-4 py-3 border border-transparent"
-                >
-                  <div className="w-2 h-2 bg-orange-primary/50 rounded-full"></div>
-                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                    {commune}
-                  </span>
-                </div>
               ))}
             </div>
 

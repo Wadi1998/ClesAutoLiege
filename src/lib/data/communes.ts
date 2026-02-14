@@ -139,6 +139,56 @@ export const communes: Commune[] = [
     specificInfo: 'Intervention rapide à Saint-Nicolas, Montegnée et Tilleur.',
     interventionTime: '15-20 minutes',
     serviceArea: 'Saint-Nicolas et environs'
+  },
+  {
+    id: '14',
+    slug: 'jupille',
+    name: 'Jupille',
+    postalCode: '4020',
+    description: 'Serrurier automobile à Jupille. Service 24h/24 pour ouverture de portière, reproduction de clés et programmation de clés électroniques.',
+    specificInfo: 'Intervention rapide à Jupille-sur-Meuse et les quartiers avoisinants.',
+    interventionTime: '10-15 minutes',
+    serviceArea: 'Jupille et environs'
+  },
+  {
+    id: '15',
+    slug: 'wandre',
+    name: 'Wandre',
+    postalCode: '4020',
+    description: 'Serrurier automobile à Wandre. Expert en serrurerie auto disponible 24h/24 pour tous vos problèmes de clés de voiture.',
+    specificInfo: 'Service disponible à Wandre, Rocourt et les quartiers nord de Liège.',
+    interventionTime: '15-20 minutes',
+    serviceArea: 'Wandre et environs'
+  },
+  {
+    id: '16',
+    slug: 'vottem',
+    name: 'Vottem',
+    postalCode: '4041',
+    description: 'Serrurier automobile à Vottem. Dépannage rapide 24h/24 pour reproduction de clés, ouverture de véhicules et réparation de serrures auto.',
+    specificInfo: 'Intervention rapide à Vottem et les communes environnantes d\'Herstal.',
+    interventionTime: '15-20 minutes',
+    serviceArea: 'Vottem et environs'
+  },
+  {
+    id: '17',
+    slug: 'rocourt',
+    name: 'Rocourt',
+    postalCode: '4000',
+    description: 'Serrurier automobile à Rocourt. Service professionnel de serrurerie auto : clés perdues, ouverture de portière, programmation de clés.',
+    specificInfo: 'Je couvre Rocourt et les quartiers périphériques de Liège avec des délais courts.',
+    interventionTime: '15-20 minutes',
+    serviceArea: 'Rocourt et environs'
+  },
+  {
+    id: '18',
+    slug: 'glain',
+    name: 'Glain',
+    postalCode: '4000',
+    description: 'Serrurier automobile à Glain. Intervention rapide pour tous types de dépannage automobile : clés, serrures, ouverture de véhicules.',
+    specificInfo: 'Service disponible à Glain et les quartiers ouest de Liège.',
+    interventionTime: '10-15 minutes',
+    serviceArea: 'Glain et environs'
   }
 ];
 
@@ -154,7 +204,7 @@ export const getCommunesByProximity = (currentSlug: string): Commune[] => {
   // Retourne 3 communes proches (à personnaliser selon la géographie réelle)
   const proximityMap: { [key: string]: string[] } = {
     'liege': ['herstal', 'ans', 'grivegnee'],
-    'herstal': ['liege', 'saint-nicolas', 'ans'],
+    'herstal': ['liege', 'saint-nicolas', 'vottem'],
     'seraing': ['ougree', 'flemalle', 'liege'],
     'ans': ['herstal', 'liege', 'saint-nicolas'],
     'flemalle': ['seraing', 'ougree', 'ans'],
@@ -162,10 +212,15 @@ export const getCommunesByProximity = (currentSlug: string): Commune[] => {
     'chaudfontaine': ['angleur', 'beyne-heusay', 'liege'],
     'ougree': ['seraing', 'flemalle', 'liege'],
     'angleur': ['liege', 'chaudfontaine', 'grivegnee'],
-    'bressoux': ['liege', 'herstal', 'grivegnee'],
+    'bressoux': ['liege', 'jupille', 'wandre'],
     'grivegnee': ['liege', 'angleur', 'beyne-heusay'],
     'beyne-heusay': ['grivegnee', 'chaudfontaine', 'liege'],
-    'saint-nicolas': ['herstal', 'ans', 'liege']
+    'saint-nicolas': ['herstal', 'ans', 'liege'],
+    'jupille': ['bressoux', 'wandre', 'liege'],
+    'wandre': ['bressoux', 'jupille', 'rocourt'],
+    'vottem': ['herstal', 'saint-nicolas', 'liege'],
+    'rocourt': ['wandre', 'liege', 'glain'],
+    'glain': ['liege', 'rocourt', 'ans']
   };
 
   const nearbySlugs = proximityMap[currentSlug] || [];
