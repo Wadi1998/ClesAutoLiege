@@ -1,9 +1,9 @@
-Contact: mailto:contact@clefautoliege.be
+Contact: mailto:contact@cles-auto-liege.be
 Contact: tel:+32493447205
 Expires: 2027-12-31T23:59:59.000Z
 Preferred-Languages: fr, en
-Canonical: https://clefautoliege.be/.well-known/security.txt
-Policy: https://clefautoliege.be/mentions-legales
+Canonical: https://cles-auto-liege.be/.well-known/security.txt
+Policy: https://cles-auto-liege.be/mentions-legales
 Acknowledgments: Merci de nous signaler tout problème de sécurité de manière responsable.
 
 # Security Policy for Clés Auto Liège

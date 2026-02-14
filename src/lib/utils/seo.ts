@@ -154,7 +154,7 @@ export const generateLocalBusinessSchema = () => {
     priceRange: '€€',
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-    email: 'contact@clefautoliege.be',
+    email: 'contact@cles-auto-liege.be',
     sameAs: [
       'https://www.facebook.com/clefautoliege',
       'https://www.instagram.com/clefautoliege',
@@ -388,7 +388,7 @@ export const generateOrganizationSchema = () => {
     },
     description: 'Expert en serrurerie automobile à Liège. Intervention 24h/24, 7j/7 pour tous vos problèmes de clés auto.',
     telephone: '+32493447205',
-    email: 'contact@clefautoliege.be',
+    email: 'contact@cles-auto-liege.be',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Liège',

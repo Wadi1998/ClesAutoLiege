@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   },
   other: {
     'author': 'Clés Auto Liège',
-    'reply-to': 'contact@clefautoliege.be',
-    'link': 'https://clefautoliege.be/humans.txt',
+    'reply-to': 'contact@cles-auto-liege.be',
+    'link': 'https://cles-auto-liege.be/humans.txt',
   },
 };
 
@@ -113,7 +113,7 @@ export default function RootLayout({
         <meta name="DC.date" content="2026-02-14" />
         <meta name="DC.type" content="Service" />
         <meta name="DC.format" content="text/html" />
-        <meta name="DC.identifier" content="https://clefautoliege.be" />
+        <meta name="DC.identifier" content="https://cles-auto-liege.be" />
         <meta name="DC.language" content="fr-BE" />
         <meta name="DC.coverage" content="Liège, Belgique" />
         <meta name="DC.rights" content="Copyright 2026 Clés Auto Liège" />
@@ -150,9 +150,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
         
         {/* Alternate languages (hreflang) */}
-        <link rel="alternate" hrefLang="fr-BE" href="https://clefautoliege.be" />
-        <link rel="alternate" hrefLang="fr" href="https://clefautoliege.be" />
-        <link rel="alternate" hrefLang="x-default" href="https://clefautoliege.be" />
+        <link rel="alternate" hrefLang="fr-BE" href="https://cles-auto-liege.be" />
+        <link rel="alternate" hrefLang="fr" href="https://cles-auto-liege.be" />
+        <link rel="alternate" hrefLang="x-default" href="https://cles-auto-liege.be" />
       </head>
       <body className={inter.className}>
         <ScrollProgress />

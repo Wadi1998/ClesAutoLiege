@@ -6,7 +6,7 @@
 # google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
 
 # Déclaration du contact
-contact=contact@clefautoliege.be
+contact=contact@cles-auto-liege.be
 
 # Déclaration de l'inventaire
 # Remplacer les IDs par vos propres identifiants si vous utilisez AdSense
