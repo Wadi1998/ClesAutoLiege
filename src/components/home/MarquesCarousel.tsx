@@ -9,36 +9,39 @@ const marquesAvecLogos = marques.filter(m => m.logo);
 export const MarquesCarousel: React.FC = () => {
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-gray-light to-white dark:from-blue-dark dark:to-blue-medium overflow-hidden">
-      <div className="container mx-auto px-4">
+      {/* Titre et description */}
+      <div className="container mx-auto px-4 mb-12">
         <h2 className="text-3xl md:text-4xl font-bold font-heading text-center mb-4 text-blue-dark dark:text-white">
           Toutes Marques Prises en Charge
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Plus de 50 marques automobiles • Expertise toutes gammes
         </p>
+      </div>
 
-        {/* Carousel infini simple */}
-        <div className="carousel-container overflow-hidden">
-          <div className="carousel-track">
-            {[...marquesAvecLogos, ...marquesAvecLogos].map((marque, index) => (
-              <div key={`${marque.id}-${index}`} className="carousel-item">
-                <img
-                  src={marque.logo}
-                  alt={marque.alt}
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
+      {/* Carousel infini simple - Pleine largeur */}
+      <div className="carousel-container overflow-hidden w-full mb-12">
+        <div className="carousel-track">
+          {[...marquesAvecLogos, ...marquesAvecLogos].map((marque, index) => (
+            <div key={`${marque.id}-${index}`} className="carousel-item">
+              <img
+                src={marque.logo}
+                alt={marque.alt}
+                className="h-16 md:h-20 w-auto object-contain"
+              />
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* Texte sous le carousel */}
-        <p className="text-center mt-12 text-lg text-gray-700 dark:text-gray-300 font-medium">
+      {/* Texte et badges */}
+      <div className="container mx-auto px-4">
+        <p className="text-center text-lg text-gray-700 dark:text-gray-300 font-medium mb-8">
           Et bien d'autres marques ! <span className="text-orange-primary">Toutes les marques automobiles sont prises en charge.</span>
         </p>
 
         {/* Badge certifications */}
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
+        <div className="flex flex-wrap justify-center gap-4">
           <div className="bg-orange-primary/10 border border-orange-primary rounded-full px-6 py-2">
             <span className="text-orange-primary font-semibold">✓ Équipement Professionnel</span>
           </div>
@@ -59,7 +62,7 @@ export const MarquesCarousel: React.FC = () => {
         .carousel-track {
           display: flex;
           width: max-content;
-          gap: 3rem;
+          gap: 4rem;
           animation: scroll 51s linear infinite;
         }
 
