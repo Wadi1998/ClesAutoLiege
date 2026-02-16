@@ -6,14 +6,10 @@ import { ChevronDown, Sparkles } from 'lucide-react';
 import { PhoneButton } from '@/components/shared/PhoneButton';
 import { WhatsAppButton } from '@/components/shared/WhatsAppButton';
 import { MascotteInteractive } from '@/components/shared/MascotteInteractive';
-import { fadeInUp, fadeInDown, scaleIn } from '@/lib/utils/animations';
-import { useTimeOfDay } from '@/lib/hooks/useTimeOfDay';
-import { useGeolocation } from '@/lib/hooks/useGeolocation';
+import { fadeInUp, scaleIn } from '@/lib/utils/animations';
 import { useIsDesktop } from '@/lib/hooks/useMediaQuery';
 
 export const HeroPremium: React.FC = () => {
-  const timeOfDay = useTimeOfDay();
-  const location = useGeolocation();
   const isDesktop = useIsDesktop();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   
@@ -42,14 +38,6 @@ export const HeroPremium: React.FC = () => {
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, [isDesktop]);
-
-  // Messages dynamiques selon l'heure
-  const getTimeMessage = () => {
-    if (timeOfDay === 'night') {
-      return '🌙 Intervention de nuit – Réponse rapide';
-    }
-    return '✅ Disponible immédiatement';
-  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
@@ -149,21 +137,6 @@ export const HeroPremium: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Contenu gauche avec glassmorphism */}
           <div className="text-center lg:text-left">
-            {/* Badge dynamique glassmorphism */}
-            <motion.div
-              variants={fadeInDown}
-              initial="hidden"
-              animate="visible"
-              className="inline-flex items-center gap-2 bg-green-500/90 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 shadow-xl border border-white/20"
-            >
-              <motion.div
-                className="w-2 h-2 bg-white rounded-full"
-                animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              />
-              {getTimeMessage()} • {location.region}
-            </motion.div>
-
             {/* Titre avec effet typewriter et glassmorphism */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -335,7 +308,7 @@ export const HeroPremium: React.FC = () => {
           }}
         >
           <span className="text-sm text-gray-600 dark:text-gray-400 font-medium group-hover:text-orange-primary transition-colors">
-            Découvrez mes services
+            Découvrez nos services
           </span>
           <motion.div
             className="p-2 rounded-full bg-white/60 dark:bg-gray-800/60 backdrop-blur-md border border-white/20 shadow-lg"

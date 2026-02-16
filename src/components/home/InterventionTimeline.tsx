@@ -8,32 +8,32 @@ const steps = [
   {
     number: 1,
     icon: <Phone className="w-8 h-8" />,
-    title: 'Vous m\'appelez',
-    description: 'Décrivez votre problème. Je vous donne un devis clair par téléphone et confirme ma disponibilité immédiate.',
+    title: 'Votre appel',
+    description: 'Décrivez votre situation. Devis clair et disponibilité confirmée immédiatement par téléphone.',
     duration: '2 min',
     color: 'from-blue-500 to-blue-600'
   },
   {
     number: 2,
     icon: <Car className="w-8 h-8" />,
-    title: 'Je me déplace',
-    description: 'J\'arrive sur place en moins de 30 minutes avec tout le matériel nécessaire pour votre véhicule.',
+    title: 'Déplacement rapide',
+    description: 'Arrivée sur place avec le matériel adapté à votre véhicule en moins de 30 minutes.',
     duration: '< 30 min',
     color: 'from-orange-primary to-red-500'
   },
   {
     number: 3,
     icon: <Wrench className="w-8 h-8" />,
-    title: 'J\'interviens',
-    description: 'Diagnostic précis et intervention professionnelle. Je travaille rapidement et avec soin sur votre véhicule.',
+    title: 'Intervention pro',
+    description: 'Diagnostic précis et résolution rapide du problème avec expertise technique.',
     duration: '15-45 min',
     color: 'from-purple-500 to-purple-600'
   },
   {
     number: 4,
     icon: <CheckCircle className="w-8 h-8" />,
-    title: 'C\'est réglé !',
-    description: 'Test complet, facture détaillée et garantie. Vous repartez serein avec vos clés fonctionnelles.',
+    title: 'Problème résolu',
+    description: 'Test complet, facture détaillée et garantie. Repartez serein avec vos clés fonctionnelles.',
     duration: '5 min',
     color: 'from-green-500 to-emerald-600'
   }
@@ -74,7 +74,7 @@ export const InterventionTimeline: React.FC = () => {
           </h2>
           
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Un processus clair et rapide pour résoudre votre problème de clés en moins d'1 heure
+            Un processus clair et rapide pour résoudre votre problème de clés en moins d&apos;1 heure
           </p>
         </motion.div>
 
@@ -146,28 +146,6 @@ export const InterventionTimeline: React.FC = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA bas */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <div className="bg-gradient-to-r from-orange-primary to-red-500 text-white rounded-2xl p-8 max-w-2xl mx-auto shadow-2xl">
-            <p className="text-2xl font-bold mb-4">⚡ Temps total moyen : 45-60 minutes</p>
-            <p className="text-white/90 mb-6">De votre appel à la résolution complète du problème</p>
-            <motion.a
-              href="tel:+32493447205"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-white text-orange-primary px-8 py-4 rounded-full font-bold shadow-xl hover:shadow-2xl transition-all"
-            >
-              <Phone className="w-5 h-5" />
-              <span>Lancez le processus maintenant</span>
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

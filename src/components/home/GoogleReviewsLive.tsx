@@ -148,7 +148,7 @@ export const GoogleReviewsLive: React.FC = () => {
             Avis <span className="text-orange-primary">Google</span> Vérifiés
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Découvrez ce que mes clients disent de leurs expériences. 
+            Découvrez ce que nos clients disent de leurs expériences. 
             Tous les avis sont authentiques et vérifiés par Google.
           </p>
         </div>

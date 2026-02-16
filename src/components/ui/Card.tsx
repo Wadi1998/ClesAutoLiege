@@ -9,6 +9,8 @@ interface CardProps {
   onClick?: () => void;
 }
 
+// Composant utilisé dans ServicesGrid. Les sous-parties (Header/Title/Content/Footer)
+// ont été retirées car non consommées ailleurs.
 export const Card: React.FC<CardProps> = ({
   children,
   variant = 'default',
@@ -19,13 +21,13 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const baseClasses = 'rounded-2xl transition-all duration-300';
   
-  const variantClasses = {
+  const variantClasses: Record<NonNullable<CardProps['variant']>, string> = {
     default: 'bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700',
     glass: 'glass backdrop-blur-lg',
     gradient: 'gradient-orange text-white',
   };
 
-  const paddingClasses = {
+  const paddingClasses: Record<NonNullable<CardProps['padding']>, string> = {
     sm: 'p-4',
     md: 'p-6',
     lg: 'p-8',
@@ -39,58 +41,6 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <div className={classes} onClick={onClick}>
-      {children}
-    </div>
-  );
-};
-
-interface CardHeaderProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const CardHeader: React.FC<CardHeaderProps> = ({ children, className = '' }) => {
-  return (
-    <div className={`mb-4 ${className}`}>
-      {children}
-    </div>
-  );
-};
-
-interface CardTitleProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const CardTitle: React.FC<CardTitleProps> = ({ children, className = '' }) => {
-  return (
-    <h3 className={`text-xl font-bold font-heading ${className}`}>
-      {children}
-    </h3>
-  );
-};
-
-interface CardContentProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const CardContent: React.FC<CardContentProps> = ({ children, className = '' }) => {
-  return (
-    <div className={className}>
-      {children}
-    </div>
-  );
-};
-
-interface CardFooterProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const CardFooter: React.FC<CardFooterProps> = ({ children, className = '' }) => {
-  return (
-    <div className={`mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 ${className}`}>
       {children}
     </div>
   );
