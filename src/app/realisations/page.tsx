@@ -38,12 +38,14 @@ export default function RealisationsPage() {
       <StructuredData data={gallerySchema} />
       
       {/* Breadcrumb */}
-      <Breadcrumb
-        items={[
-          { label: 'Accueil', href: '/' },
-          { label: 'Nos Réalisations', href: '/realisations' }
-        ]}
-      />
+      <div className="container mx-auto px-4 py-4">
+        <Breadcrumb
+          items={[
+            { label: 'Accueil', href: '/' },
+            { label: 'Nos Réalisations', href: '/realisations' }
+          ]}
+        />
+      </div>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 overflow-hidden">

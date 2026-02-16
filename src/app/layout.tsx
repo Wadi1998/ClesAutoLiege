@@ -69,7 +69,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr-BE" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="fr-BE" className={`dark ${inter.variable} ${poppins.variable}`}>
       <head>
         {/* Préchargement des ressources critiques - Optimisé avec fetchpriority */}
         <link rel="preload" href="/images/LogoOK.png" as="image" type="image/png" fetchPriority="high" />

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { DarkModeToggle } from '@/components/shared/DarkModeToggle';
 import { PhoneButton } from '@/components/shared/PhoneButton';
 import { services } from '@/lib/data/services';
 
@@ -122,13 +121,11 @@ export const Header: React.FC = () => {
 
             {/* Actions Desktop */}
             <div className="hidden lg:flex items-center gap-3">
-              <DarkModeToggle />
               <PhoneButton size="md" animate />
             </div>
 
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-3 lg:hidden">
-              <DarkModeToggle />
               <button
                 onClick={toggleMobileMenu}
                 className="p-2 rounded-full bg-blue-medium/70 hover:bg-blue-medium transition-colors"
