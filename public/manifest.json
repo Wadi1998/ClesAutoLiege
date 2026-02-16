@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "/images/LogoOK.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/logo.png",
+      "src": "/images/LogoOK.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
@@ -23,7 +23,7 @@
   ],
   "screenshots": [
     {
-      "src": "/logo.png",
+      "src": "/images/LogoOK.png",
       "sizes": "512x512",
       "type": "image/png",
       "form_factor": "narrow"
@@ -42,14 +42,14 @@
       "short_name": "Appel",
       "description": "Contactez-nous pour une intervention rapide",
       "url": "/",
-      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/images/LogoOK.png", "sizes": "192x192" }]
     },
     {
       "name": "Nos Services",
       "short_name": "Services",
       "description": "Découvrez tous nos services",
       "url": "/services/reproduction-cles",
-      "icons": [{ "src": "/logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/images/LogoOK.png", "sizes": "192x192" }]
     }
   ],
   "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
