@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/Footer';
 import { StickyContactBar } from '@/components/shared/StickyContactBar';
 import { ScrollProgress } from '@/components/shared/ScrollProgress';
 import { SmartFloatingCTA } from '@/components/shared/SmartFloatingCTA';
+import { BackToTopButton } from '@/components/shared/BackToTopButton';
 import { generateMetadata } from '@/lib/utils/seo';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -43,18 +44,17 @@ export const metadata: Metadata = {
     statusBarStyle: 'black-translucent',
     title: 'Clés Auto Liège',
     startupImage: [
-      '/logo.png',
+      '/images/LogoOK.png',
     ],
   },
   icons: {
     icon: [
-      { url: '/logo.png', sizes: '512x512', type: 'image/png' },
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/images/LogoOK.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: '/logo.png', sizes: '512x512', type: 'image/png' },
+      { url: '/images/LogoOK.png', sizes: '512x512', type: 'image/png' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/images/LogoOK.png',
   },
   other: {
     'author': 'Clés Auto Liège',
@@ -72,7 +72,7 @@ export default function RootLayout({
     <html lang="fr-BE" className={`${inter.variable} ${poppins.variable}`}>
       <head>
         {/* Préchargement des ressources critiques - Optimisé avec fetchpriority */}
-        <link rel="preload" href="/logo.png" as="image" type="image/png" fetchPriority="high" />
+        <link rel="preload" href="/images/LogoOK.png" as="image" type="image/png" fetchPriority="high" />
         <link rel="preload" href="/mascotte.webp" as="image" type="image/webp" fetchPriority="high" />
         
         {/* Theme colors pour PWA et navigateurs */}
@@ -108,11 +108,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Clés Auto Liège" />
-        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="apple-touch-icon" href="/images/LogoOK.png" />
         
         {/* Microsoft Meta Tags */}
         <meta name="msapplication-TileColor" content="#FF6B35" />
-        <meta name="msapplication-TileImage" content="/logo.png" />
+        <meta name="msapplication-TileImage" content="/images/LogoOK.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         
         {/* Preconnect pour améliorer les performances */}
@@ -126,12 +126,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <ScrollProgress />
         <Header />
-        <main className="min-h-screen" id="main-content" role="main">
+        <main className="min-h-screen pt-24 sm:pt-[92px]" id="main-content" role="main">
           {children}
         </main>
         <Footer />
         <StickyContactBar />
         <SmartFloatingCTA />
+        <BackToTopButton />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -10,31 +10,8 @@ import { PhoneButton } from '@/components/shared/PhoneButton';
 import { services } from '@/lib/data/services';
 
 export const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-
-  // Optimisation du scroll avec RAF et throttle
-  useEffect(() => {
-    let rafId: number;
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        rafId = requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 20);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -53,32 +30,30 @@ export const Header: React.FC = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg py-3'
-            : 'bg-transparent py-5'
+        className={`fixed top-0 left-0 right-0 z-40 bg-blue-dark border-b border-blue-medium/70 shadow-sm py-3 sm:py-4 ${
+          isMobileMenuOpen ? 'hidden lg:block' : 'block'
         }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo - Optimisé avec next/image */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12">
+            <Link href="/" className="flex items-center gap-0 sm:gap-1 group">
+              <div className="relative w-[72px] h-[72px] sm:w-[60px] sm:h-[60px] flex items-center justify-center self-center shrink-0 -mr-1 sm:mr-0">
                 <Image 
-                  src="/logo.png" 
+                  src="/images/LogoOK.png" 
                   alt="Clés Auto Liège" 
-                  width={48}
-                  height={48}
-                  className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  fill
+                  sizes="(max-width: 639px) 72px, 60px"
+                  className="object-contain object-center"
                   priority
                   quality={90}
                 />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-xl font-bold font-heading text-gray-900 dark:text-white">
+                <h1 className="text-xl font-bold font-heading text-white">
                   Clés Auto Liège
                 </h1>
-                <p className="text-xs text-gray-600 dark:text-gray-400">Disponible 24/7</p>
+                <p className="text-xs text-gray-300">Disponible 24/7</p>
               </div>
             </Link>
 
@@ -86,7 +61,7 @@ export const Header: React.FC = () => {
             <nav className="hidden lg:flex items-center gap-8">
               <Link
                 href="/"
-                className="text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary font-medium transition-colors"
+                className="text-gray-100 hover:text-orange-primary font-medium transition-colors"
               >
                 Accueil
               </Link>
@@ -98,7 +73,7 @@ export const Header: React.FC = () => {
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
                 <button 
-                  className="flex items-center gap-1 text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary font-medium transition-colors"
+                  className="flex items-center gap-1 text-gray-100 hover:text-orange-primary font-medium transition-colors"
                   aria-expanded={isServicesOpen}
                   aria-haspopup="true"
                 >
@@ -138,7 +113,7 @@ export const Header: React.FC = () => {
 
               <Link
                 href="/realisations"
-                className="text-gray-700 dark:text-gray-300 hover:text-orange-primary dark:hover:text-orange-primary font-medium transition-colors"
+                className="text-gray-100 hover:text-orange-primary font-medium transition-colors"
               >
                 Nos Réalisations
               </Link>
@@ -156,13 +131,13 @@ export const Header: React.FC = () => {
               <DarkModeToggle />
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                className="p-2 rounded-full bg-blue-medium/70 hover:bg-blue-medium transition-colors"
                 aria-label="Menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6 text-gray-900 dark:text-white" />
+                  <X className="w-6 h-6 text-white" />
                 ) : (
-                  <Menu className="w-6 h-6 text-gray-900 dark:text-white" />
+                  <Menu className="w-6 h-6 text-white" />
                 )}
               </button>
             </div>
@@ -178,11 +153,11 @@ export const Header: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-30 lg:hidden"
+            className="fixed inset-0 z-50 lg:hidden"
           >
             {/* Overlay */}
             <div
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-blue-dark/90 backdrop-blur-sm"
               onClick={closeMobileMenu}
             />
 
@@ -192,20 +167,20 @@ export const Header: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-white dark:bg-gray-900 shadow-2xl overflow-y-auto"
+              className="absolute top-0 right-0 bottom-0 w-full max-w-sm bg-blue-dark border-l border-blue-medium shadow-2xl overflow-y-auto"
               style={{ willChange: 'transform' }}
             >
               <div className="p-6">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-2xl font-bold font-heading text-gray-900 dark:text-white">
+                  <h2 className="text-2xl font-bold font-heading text-white">
                     Menu
                   </h2>
                   <button
                     onClick={closeMobileMenu}
-                    className="p-2 rounded-full bg-gray-100 dark:bg-gray-800"
+                    className="p-2 rounded-full bg-blue-medium/70 hover:bg-blue-medium transition-colors"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-6 h-6 text-white" />
                   </button>
                 </div>
 
@@ -214,7 +189,7 @@ export const Header: React.FC = () => {
                   <Link
                     href="/"
                     onClick={closeMobileMenu}
-                    className="block px-4 py-3 rounded-xl font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    className="block px-4 py-3 rounded-xl font-semibold text-white hover:bg-blue-medium/70 transition-colors"
                     prefetch={false}
                   >
                     Accueil
@@ -222,7 +197,7 @@ export const Header: React.FC = () => {
 
                   {/* Services */}
                   <div>
-                    <p className="px-4 py-2 text-sm font-semibold text-gray-500 dark:text-gray-400">
+                    <p className="px-4 py-2 text-sm font-semibold text-gray-300">
                       Mes Services
                     </p>
                     {services.map((service) => (
@@ -230,7 +205,7 @@ export const Header: React.FC = () => {
                         key={service.id}
                         href={`/services/${service.slug}`}
                         onClick={closeMobileMenu}
-                        className="block px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="block px-4 py-3 rounded-xl text-gray-100 hover:bg-blue-medium/70 transition-colors"
                         prefetch={false}
                       >
                         {service.title}
@@ -241,7 +216,7 @@ export const Header: React.FC = () => {
                   <Link
                     href="/realisations"
                     onClick={closeMobileMenu}
-                    className="block px-4 py-3 rounded-xl font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    className="block px-4 py-3 rounded-xl font-semibold text-white hover:bg-blue-medium/70 transition-colors"
                     prefetch={false}
                   >
                     Nos Réalisations
@@ -249,7 +224,7 @@ export const Header: React.FC = () => {
                 </nav>
 
                 {/* CTA */}
-                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                <div className="mt-8 pt-8 border-t border-blue-medium">
                   <PhoneButton size="lg" fullWidth animate />
                 </div>
               </div>

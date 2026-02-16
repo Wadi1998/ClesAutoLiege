@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { OptimizedImage } from '@/components/shared/OptimizedImage';
+import React from 'react';
 
 interface GalleryItem {
   id: number;
@@ -11,6 +10,18 @@ interface GalleryItem {
   description: string;
 }
 
+const interventionItems: GalleryItem[] = Array.from({ length: 13 }, (_, index) => {
+  const number = index + 1;
+
+  return {
+    id: 100 + number,
+    image: `/images/${number}.webp`,
+    title: `Intervention ${number}`,
+    category: 'interventions',
+    description: 'Intervention serrurerie auto réalisée sur site à Liège.'
+  };
+});
+
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
@@ -19,90 +30,128 @@ const galleryItems: GalleryItem[] = [
     category: 'equipement',
     description: 'Notre camionnette équipée pour toutes les interventions'
   },
-  {
-    id: 2,
-    image: '/mascotte.webp',
-    title: 'Équipe professionnelle',
-    category: 'equipe',
-    description: 'Des experts à votre service 24/7'
-  },
-  {
-    id: 3,
-    image: '/logo.png',
-    title: 'Clés Auto Liège',
-    category: 'marque',
-    description: 'Votre expert en serrurerie automobile'
-  },
-];
-
-const categories = [
-  { id: 'tous', label: 'Tous' },
-  { id: 'equipement', label: 'Équipement' },
-  { id: 'equipe', label: 'Équipe' },
-  { id: 'marque', label: 'Marque' },
+  ...interventionItems,
 ];
 
 export const GalleryPremium: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('tous');
-
-  const filteredItems = selectedCategory === 'tous' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === selectedCategory);
+  const interventionGallery = galleryItems.filter(item => item.category === 'interventions');
+  const camionnette = galleryItems.find(item => item.category === 'equipement');
 
   return (
     <section className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Filtres */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-                selectedCategory === cat.id
-                  ? 'bg-primary-600 text-white shadow-lg'
-                  : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Grille de galerie */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-            >
-              <div className="aspect-w-16 aspect-h-12 bg-gray-200 dark:bg-gray-800">
-                <OptimizedImage
-                  src={item.image}
-                  alt={item.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-64 object-cover"
+        {/* Section camionnette */}
+        {camionnette && (
+          <div className="mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="relative w-full overflow-hidden rounded-3xl shadow-2xl aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9]">
+                <img
+                  src={camionnette.image}
+                  alt={camionnette.title}
+                  className="absolute inset-0 h-full w-full object-cover object-center block"
+                  loading="lazy"
                 />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-transparent" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-200">{item.description}</p>
-                </div>
+              <div>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 bg-primary-50 px-4 py-2 rounded-full">
+                  Intervention mobile 24/7
+                </span>
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mt-4 mb-4">
+                  Notre camionnette d&apos;intervention
+                </h3>
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                  Nous intervenons rapidement partout à Liège et dans les environs avec un équipement complet pour ouvrir, réparer ou programmer vos clés sur place.
+                </p>
               </div>
             </div>
-          ))}
-        </div>
-
-        {filteredItems.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500 dark:text-gray-400 text-lg">
-              Aucune réalisation dans cette catégorie pour le moment.
-            </p>
           </div>
         )}
+
+        {/* Section interventions */}
+        <div className="mb-10 text-center">
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+            Nos interventions récentes
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl mx-auto">
+            Un aperçu de quelques interventions réalisées chez nos clients.
+          </p>
+        </div>
+
+        <div className="interventions-slider">
+          <div className="interventions-track">
+            {[...interventionGallery, ...interventionGallery].map((item, index) => (
+              <div
+                key={`${item.id}-${index}`}
+                className="intervention-card"
+              >
+                <div className="intervention-media">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-[22rem] object-cover block"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      <style jsx>{`
+        .interventions-slider {
+          overflow: hidden;
+          position: relative;
+        }
+
+        .interventions-track {
+          display: flex;
+          gap: 2rem;
+          width: max-content;
+          animation: interventions-scroll 45s linear infinite;
+        }
+
+        .intervention-card {
+          flex: 0 0 auto;
+          width: 280px;
+        }
+
+        .intervention-media {
+          position: relative;
+          overflow: hidden;
+          border-radius: 1.5rem;
+        }
+
+        @keyframes interventions-scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .interventions-track {
+            animation-duration: 38s;
+          }
+
+          .intervention-card {
+            width: 280px;
+          }
+
+          .intervention-card :global(img) {
+            height: 22rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };
+
+
+
+
+
+

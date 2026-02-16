@@ -34,30 +34,31 @@ export const GoogleReviewsLive: React.FC = () => {
         
         // Données simulées (remplacer par vraie API)
         setPlaceData({
-          rating: 4.9,
-          user_ratings_total: 127,
+          rating: 5.0,
+          user_ratings_total: 79,
           reviews: [
             {
-              author_name: 'Sophie Martinez',
+              author_name: 'Nicolas Auwers',
               rating: 5,
-              text: 'Service impeccable ! Intervention rapide en pleine nuit. Professionnel et sympathique. Je recommande vivement !',
+              text: "Bloqué depuis 3 jours. Après contact avec Citroën Shyns Chênée, ils ne savaient pas m’aider avant le 5 janvier. Je trouve le site Clés Auto Liège. Un appel, 2h plus tard, le problème est réglé avec un monsieur fort sympathique. Merci à lui. Je recommande fortement si vous vous retrouvez dans la même situation. Merci à lui et bonnes fêtes de fin d’année.",
               time: Date.now() - 86400000 * 2,
               relative_time_description: 'il y a 2 jours',
-              profile_photo_url: '/api/placeholder/40/40'
+              profile_photo_url: '/images/avis1.png'
             },
             {
-              author_name: 'Marc Dupont',
+              author_name: 'Lucas Migeotte',
               rating: 5,
-              text: 'Excellente prestation pour ma BMW. Beaucoup moins cher que le concessionnaire, fait en 20 minutes chez moi.',
+              text: "Rendez-vous fixé ultra rapidement (un samedi matin) pour la fourniture et la programmation d’une nouvelle clé pour mon véhicule. Travail effectué en 10 minutes à un prix très correct. Je recommande, un vrai pro. Encore merci.",
               time: Date.now() - 86400000 * 5,
               relative_time_description: 'il y a 5 jours',
             },
             {
-              author_name: 'Isabelle Laurent',
+              author_name: 'Seven Rsx',
               rating: 5,
-              text: 'Très réactif et professionnel. Ma clé cassée extraite et remplacée en 30 minutes. Parfait !',
+              text: "Franchement super service ! J’étais bloqué avec ma voiture un dimanche soir, et ils sont intervenus très vite. Le déverrouillage a été fait en quelques minutes, sans aucun dégât, et avec beaucoup de professionnalisme. Un grand merci pour la réactivité et l’efficacité, surtout à cette heure-là ! Je recommande.",
               time: Date.now() - 86400000 * 7,
               relative_time_description: 'il y a 1 semaine',
+              profile_photo_url: '/images/avis2.png'
             }
           ]
         });
@@ -88,6 +89,13 @@ export const GoogleReviewsLive: React.FC = () => {
     return null; // Fallback silencieux
   }
 
+  const ratingLabel = Number.isInteger(placeData.rating)
+    ? placeData.rating.toFixed(0)
+    : placeData.rating.toFixed(1);
+  const googleReviewsUrl =
+    process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL ||
+    'https://www.google.com/search?sa=X&sca_esv=ebc9003c0e8ff0d8&hl=fr-BE&biw=1745&bih=866&sxsrf=ANbL-n7ZDGqLaWOa-8DkKY5iL6aOU4PWwg:1771189249422&q=Cl%C3%A9s%20Auto%20Li%C3%A8ge%20-%20cl%C3%A9%20voiture%20li%C3%A8ge%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NbA0MbE0szQ0N7IwNTYwNzE12MDI-IpRxznn8MpiBcfSknwFn8zDK9JTFXQVkoFiCmX5mSWlRakKORBRx7LM4kWsJCkHACIsTTV4AAAA&rldimm=5094496917285307450&tbm=lcl&ved=0CEkQ5foLahcKEwjQ0OuOstySAxUAAAAAHQAAAAAQCg#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT21GUldtNW5VbkZ3WXkxNVNFcG1kRXB4VkU5T2EwRRAB';
+
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-orange-50 to-white dark:from-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4">
@@ -107,7 +115,7 @@ export const GoogleReviewsLive: React.FC = () => {
             <div className="text-left">
               <div className="flex items-center gap-2">
                 <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                  {placeData.rating.toFixed(1)}
+                  {ratingLabel}
                 </span>
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -123,7 +131,7 @@ export const GoogleReviewsLive: React.FC = () => {
                 </div>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                {placeData.user_ratings_total} avis Google
+                {placeData.user_ratings_total} avis Google • {ratingLabel} étoiles
               </p>
             </div>
             <motion.div
@@ -158,9 +166,18 @@ export const GoogleReviewsLive: React.FC = () => {
             >
               {/* Header avec avatar */}
               <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 bg-orange-primary rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
-                  {review.author_name.charAt(0)}
-                </div>
+                {review.profile_photo_url ? (
+                  <img
+                    src={review.profile_photo_url}
+                    alt={`Photo de ${review.author_name}`}
+                    className="w-10 h-10 rounded-full object-cover flex-shrink-0 border border-gray-200 dark:border-gray-700"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-10 h-10 bg-orange-primary rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                    {review.author_name.charAt(0)}
+                  </div>
+                )}
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-gray-900 dark:text-white truncate">
                     {review.author_name}
@@ -207,7 +224,7 @@ export const GoogleReviewsLive: React.FC = () => {
         {/* Lien vers tous les avis Google */}
         <div className="text-center">
           <a
-            href={process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL || '#'}
+            href={googleReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105"

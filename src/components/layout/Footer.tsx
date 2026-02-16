@@ -16,13 +16,13 @@ export const Footer: React.FC = React.memo(() => {
           {/* Colonne 1 - À propos */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-12 h-12">
+              <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
                 <Image 
-                  src="/logo.png" 
+                  src="/images/LogoOK.png" 
                   alt="Clés Auto Liège"
-                  width={48}
-                  height={48}
-                  className="object-contain"
+                  fill
+                  sizes="56px"
+                  className="object-contain object-center translate-y-0.5"
                   loading="lazy"
                   quality={85}
                 />

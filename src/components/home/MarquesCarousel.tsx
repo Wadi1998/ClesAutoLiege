@@ -3,10 +3,10 @@
 import React from 'react';
 import { marques } from '@/lib/data/marques';
 
-export const MarquesCarousel: React.FC = () => {
-  // Dupliquer les marques pour un effet de carousel infini
-  const duplicatedMarques = [...marques, ...marques];
+// Filtrer seulement les marques qui ont un logo
+const marquesAvecLogos = marques.filter(m => m.logo);
 
+export const MarquesCarousel: React.FC = () => {
   return (
     <section className="py-16 md:py-20 bg-gradient-to-br from-gray-light to-white dark:from-blue-dark dark:to-blue-medium overflow-hidden">
       <div className="container mx-auto px-4">
@@ -17,28 +17,19 @@ export const MarquesCarousel: React.FC = () => {
           Plus de 50 marques automobiles • Expertise toutes gammes
         </p>
 
-        {/* Carousel infini */}
-        <div className="relative">
-          <div className="overflow-hidden">
-            <div className="flex animate-scroll hover:pause-animation">
-              {duplicatedMarques.map((marque, index) => (
-                <div
-                  key={`${marque.id}-${index}`}
-                  className="flex-shrink-0 px-6 py-4"
-                >
-                  <div className="bg-white dark:bg-blue-medium/50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 min-w-[140px] flex items-center justify-center">
-                    <span className="text-lg font-semibold text-blue-dark dark:text-white whitespace-nowrap">
-                      {marque.name}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Carousel infini simple */}
+        <div className="carousel-container overflow-hidden">
+          <div className="carousel-track">
+            {[...marquesAvecLogos, ...marquesAvecLogos].map((marque, index) => (
+              <div key={`${marque.id}-${index}`} className="carousel-item">
+                <img
+                  src={marque.logo}
+                  alt={marque.alt}
+                  className="h-12 w-auto object-contain"
+                />
+              </div>
+            ))}
           </div>
-
-          {/* Gradient fade sur les côtés */}
-          <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-light dark:from-blue-dark to-transparent pointer-events-none"></div>
-          <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white dark:from-blue-medium to-transparent pointer-events-none"></div>
         </div>
 
         {/* Texte sous le carousel */}
@@ -61,6 +52,21 @@ export const MarquesCarousel: React.FC = () => {
       </div>
 
       <style jsx>{`
+        .carousel-container {
+          position: relative;
+        }
+
+        .carousel-track {
+          display: flex;
+          width: max-content;
+          gap: 3rem;
+          animation: scroll 51s linear infinite;
+        }
+
+        .carousel-item {
+          flex: 0 0 auto;
+        }
+
         @keyframes scroll {
           0% {
             transform: translateX(0);
@@ -68,14 +74,6 @@ export const MarquesCarousel: React.FC = () => {
           100% {
             transform: translateX(-50%);
           }
-        }
-
-        .animate-scroll {
-          animation: scroll 40s linear infinite;
-        }
-
-        .hover\\:pause-animation:hover {
-          animation-play-state: paused;
         }
       `}</style>
     </section>
