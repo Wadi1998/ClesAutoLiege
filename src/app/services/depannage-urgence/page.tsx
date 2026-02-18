@@ -12,7 +12,7 @@ import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, gen
 const slug = 'depannage-urgence';
 
 export const metadata = generateMetadata({
-  title: `Dépannage Auto d'Urgence 24/7 à Liège | Clés Auto Liège`,
+  title: `Dépannage Auto d'Urgence 24/7 à Liège | Clef Auto Liège`,
   description: `Service de dépannage automobile d'urgence 24h/24 à Liège. Intervention rapide pour tous problèmes de clés. ☎️ 04 93 44 72 05`,
   keywords: ['dépannage auto urgence Liège', 'serrurier auto 24/7', 'intervention rapide', 'urgence clé voiture'],
 });

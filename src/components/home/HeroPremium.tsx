@@ -152,7 +152,7 @@ export const HeroPremium: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
                 >
-                  Clef Auto{' '}
+                  Clés Auto{' '}
                 </motion.span>
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}

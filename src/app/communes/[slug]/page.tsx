@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!commune) return {};
 
   return generateSEOMetadata({
-    title: `Serrurier Auto ${commune.name} | Clés Auto Liège - Dépannage 24/7`,
+    title: `Serrurier Auto ${commune.name} | Clef Auto Liège - Dépannage 24/7`,
     description: `${commune.description} Intervention en ${commune.interventionTime}. Toutes marques, devis gratuit. ☎️ 04 93 44 72 05`,
     keywords: [
       `serrurier auto ${commune.name}`,
@@ -117,10 +117,10 @@ export default function CommunePage({ params }: Props) {
                 </div>
               </div>
 
-              {/* Mes Services à [Commune] */}
+              {/* Nos Services à [Commune] */}
               <div>
                 <h2 className="text-2xl font-bold font-heading mb-6">
-                  Mes Services de Serrurerie Auto à {commune.name}
+                  Nos Services de Serrurerie Auto à {commune.name}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {services.map((service) => (
@@ -144,11 +144,11 @@ export default function CommunePage({ params }: Props) {
               {/* Pourquoi me choisir */}
               <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-2xl p-8">
                 <h2 className="text-2xl font-bold font-heading mb-6">
-                  Pourquoi me faire confiance à {commune.name} ?
+                  Pourquoi nous faire confiance à {commune.name} ?
                 </h2>
                 <div className="space-y-4">
                   {[
-                    `Intervention rapide : J'arrive en ${commune.interventionTime} dans la région de ${commune.name}`,
+                    `Intervention rapide : nous arrivons en ${commune.interventionTime} dans la région de ${commune.name}`,
                     'Disponibilité 24h/24 et 7j/7, même les week-ends et jours fériés',
                     'Toutes marques de véhicules prises en charge',
                     'Techniques non destructives : votre véhicule reste intact',
@@ -168,7 +168,7 @@ export default function CommunePage({ params }: Props) {
               {nearbyCommunes.length > 0 && (
                 <div>
                   <h2 className="text-2xl font-bold font-heading mb-6">
-                    J'interviens aussi dans les communes proches
+                    Nous intervenons aussi dans les communes proches
                   </h2>
                   <div className="grid sm:grid-cols-3 gap-4">
                     {nearbyCommunes.map((nearby) => (
@@ -202,7 +202,7 @@ export default function CommunePage({ params }: Props) {
                     <h3 className="font-bold text-xl">Urgence à {commune.name} ?</h3>
                   </div>
                   <p className="mb-6">
-                    J'interviens en {commune.interventionTime} dans votre zone. Appelez-moi maintenant !
+                    Nous intervenons en {commune.interventionTime} dans votre zone. Appelez-nous maintenant !
                   </p>
                   <div className="space-y-3">
                     <PhoneButton size="md" fullWidth animate />

@@ -15,9 +15,7 @@ import {
 import { globalFAQs } from '@/lib/data/faqs';
 
 // Lazy loading des composants below the fold pour optimiser le chargement initial
-const StatsCounter = lazy(() => import('@/components/home/StatsCounter').then(mod => ({ default: mod.StatsCounter })));
 const InterventionTimeline = lazy(() => import('@/components/home/InterventionTimeline').then(mod => ({ default: mod.InterventionTimeline })));
-const ProfessionalEquipment = lazy(() => import('@/components/home/ProfessionalEquipment').then(mod => ({ default: mod.ProfessionalEquipment })));
 const MarquesCarousel = lazy(() => import('@/components/home/MarquesCarousel').then(mod => ({ default: mod.MarquesCarousel })));
 const GoogleReviewsLive = lazy(() => import('@/components/home/GoogleReviewsLive').then(mod => ({ default: mod.GoogleReviewsLive })));
 const GalleryPremium = lazy(() => import('@/components/realisations/GalleryPremium').then(mod => ({ default: mod.GalleryPremium })));
@@ -52,35 +50,25 @@ export default function HomePage() {
       {/* Section 1: Hero Premium - Impact maximum avec parallax et glassmorphism */}
       <HeroPremium />
       
-      {/* Section 2: Services Grid - Présentation des 6 services */}
-      <ServicesGrid />
+      {/* Section 2: Nos Réalisations - Galerie d'interventions */}
+      <Suspense fallback={<LoadingFallback />}>
+        <GalleryPremium />
+      </Suspense>
       
       {/* Section 3: Carrousel Marques - 50+ marques */}
       <Suspense fallback={<LoadingFallback />}>
         <MarquesCarousel />
       </Suspense>
       
-      {/* Section 4: Nos Réalisations - Galerie d'interventions (REMONTÉ POUR PLUS DE VISIBILITÉ) */}
-      <Suspense fallback={<LoadingFallback />}>
-        <GalleryPremium />
-      </Suspense>
-      
-      {/* Section 5: Stats Counter - Compteurs animés (1200+ interventions, 4.9★) */}
-      <Suspense fallback={<LoadingFallback />}>
-        <StatsCounter />
-      </Suspense>
+      {/* Section 4: Services Grid - Présentation des 6 services */}
+      <ServicesGrid />
       
       {/* Section 5: Timeline - Votre intervention en 4 étapes */}
       <Suspense fallback={<LoadingFallback />}>
         <InterventionTimeline />
       </Suspense>
       
-      {/* Section 6: Équipement professionnel - Crédibilité */}
-      <Suspense fallback={<LoadingFallback />}>
-        <ProfessionalEquipment />
-      </Suspense>
-      
-      {/* Section 7: Avis Google LIVE - Reviews temps réel */}
+      {/* Section 6: Avis Google LIVE - Reviews temps réel */}
       <Suspense fallback={<LoadingFallback />}>
         <GoogleReviewsLive />
       </Suspense>

@@ -19,7 +19,7 @@ export const Footer: React.FC = React.memo(() => {
               <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
                 <Image 
                   src="/images/LogoOK.png" 
-                  alt="Clés Auto Liège"
+                  alt="Clef Auto Liège"
                   fill
                   sizes="56px"
                   className="object-contain object-center translate-y-0.5"
@@ -28,7 +28,7 @@ export const Footer: React.FC = React.memo(() => {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold font-heading">Clés Auto Liège</h3>
+                <h3 className="text-xl font-bold font-heading">Clef Auto Liège</h3>
                 <p className="text-sm text-gray-400">Disponible 24h/24</p>
               </div>
             </div>
@@ -43,7 +43,7 @@ export const Footer: React.FC = React.memo(() => {
 
           {/* Colonne 2 - Services */}
           <div>
-            <h4 className="text-lg font-bold font-heading mb-4">Mes Services</h4>
+                <h4 className="text-lg font-bold font-heading mb-4">Nos Services</h4>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service.id}>
@@ -61,7 +61,7 @@ export const Footer: React.FC = React.memo(() => {
 
           {/* Colonne 3 - Contact */}
           <div>
-            <h4 className="text-lg font-bold font-heading mb-4">Me Contacter</h4>
+            <h4 className="text-lg font-bold font-heading mb-4">Nous Contacter</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-orange-primary flex-shrink-0 mt-0.5" />
@@ -96,7 +96,7 @@ export const Footer: React.FC = React.memo(() => {
           <div>
             <h4 className="text-lg font-bold font-heading mb-4">Besoin d'aide ?</h4>
             <p className="text-gray-300 text-sm mb-4">
-              Appelez-moi ou écrivez-moi sur WhatsApp pour une intervention rapide.
+              Appelez-nous ou écrivez-nous sur WhatsApp pour une intervention rapide.
             </p>
             <div className="space-y-3">
               <PhoneButton size="md" fullWidth />
@@ -109,7 +109,7 @@ export const Footer: React.FC = React.memo(() => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex justify-center items-center">
             <p className="text-gray-400 text-sm text-center">
-              © {currentYear} Clés Auto Liège. Tous droits réservés.
+              © {currentYear} Clef Auto Liège. Tous droits réservés.
             </p>
           </div>
         </div>
