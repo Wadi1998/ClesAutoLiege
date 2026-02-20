@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Car, Wrench, CheckCircle, Clock } from 'lucide-react';
+import { Phone, Car, CheckCircle, Clock } from 'lucide-react';
 
 const steps = [
   {
@@ -23,18 +23,10 @@ const steps = [
   },
   {
     number: 3,
-    icon: <Wrench className="w-8 h-8" />,
-    title: 'Intervention pro',
-    description: 'Diagnostic précis et résolution rapide du problème avec expertise technique.',
-    duration: '15-45 min',
-    color: 'from-purple-500 to-purple-600'
-  },
-  {
-    number: 4,
     icon: <CheckCircle className="w-8 h-8" />,
     title: 'Problème résolu',
-    description: 'Test complet, facture détaillée et garantie. Repartez serein avec vos clés fonctionnelles.',
-    duration: '5 min',
+    description: 'Intervention rapide, test complet et garantie. Repartez serein avec vos clés fonctionnelles.',
+    duration: '15-45 min',
     color: 'from-green-500 to-emerald-600'
   }
 ];
@@ -70,9 +62,9 @@ export const InterventionTimeline: React.FC = () => {
           </motion.div>
 
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-gray-900 dark:text-white">
-            Votre Intervention en <span className="text-orange-primary">4 Étapes</span>
+            Votre Intervention en <span className="text-orange-primary">3 Étapes</span>
           </h2>
-          
+
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Un processus clair et rapide pour résoudre votre problème de clés en moins d&apos;1 heure
           </p>
