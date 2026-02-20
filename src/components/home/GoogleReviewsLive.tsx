@@ -40,7 +40,7 @@ export const GoogleReviewsLive: React.FC = () => {
             {
               author_name: 'Nicolas Auwers',
               rating: 5,
-              text: "Bloqué depuis 3 jours. Après contact avec Citroën Shyns Chênée, ils ne savaient pas m’aider avant le 5 janvier. Je trouve le site Clés Auto Liège. Un appel, 2h plus tard, le problème est réglé avec un monsieur fort sympathique. Merci à lui. Je recommande fortement si vous vous retrouvez dans la même situation. Merci à lui et bonnes fêtes de fin d’année.",
+              text: "Bloqué depuis 3 jours. Après contact avec Citroën Shyns Chênée, ils ne savaient pas m’aider avant le 5 janvier. Je trouve le site Clef Auto Liège. Un appel, 2h plus tard, le problème est réglé avec un monsieur fort sympathique. Merci à lui. Je recommande fortement si vous vous retrouvez dans la même situation. Merci à lui et bonnes fêtes de fin d’année.",
               time: Date.now() - 86400000 * 2,
               relative_time_description: 'il y a 2 jours',
               profile_photo_url: '/images/avis1.png'
@@ -148,7 +148,7 @@ export const GoogleReviewsLive: React.FC = () => {
             Avis <span className="text-orange-primary">Google</span> Vérifiés
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Découvrez ce que mes clients disent de leurs expériences. 
+            Découvrez ce que nos clients disent de leurs expériences. 
             Tous les avis sont authentiques et vérifiés par Google.
           </p>
         </div>
@@ -195,9 +195,6 @@ export const GoogleReviewsLive: React.FC = () => {
                         />
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500">
-                      {review.relative_time_description}
-                    </span>
                   </div>
                 </div>
               </div>

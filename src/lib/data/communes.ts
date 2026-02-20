@@ -16,7 +16,7 @@ export const communes: Commune[] = [
     name: 'Liège',
     postalCode: '4000',
     description: 'Serrurier automobile à Liège centre. Intervention rapide dans tous les quartiers : Outremeuse, Guillemins, Saint-Lambert, Féronstrée, Jonfosse, etc.',
-    specificInfo: 'Basé au cœur de Liège, j\'interviens en moins de 15 minutes dans le centre-ville.',
+    specificInfo: 'Basés au cœur de Liège, nous intervenons en moins de 15 minutes dans le centre-ville.',
     interventionTime: '10-15 minutes',
     serviceArea: 'Centre-ville et périphérie immédiate'
   },
@@ -36,7 +36,7 @@ export const communes: Commune[] = [
     name: 'Seraing',
     postalCode: '4100',
     description: 'Serrurier automobile à Seraing. Dépannage 24h/24 pour tous vos problèmes de clés de voiture : clés perdues, enfermées, cassées.',
-    specificInfo: 'Je couvre toute la commune de Seraing : Boncelles, Jemeppe, Ougrée, et tous les quartiers.',
+    specificInfo: 'Nous couvrons toute la commune de Seraing : Boncelles, Jemeppe, Ougrée, et tous les quartiers.',
     interventionTime: '15-25 minutes',
     serviceArea: 'Seraing et entités'
   },
@@ -56,7 +56,7 @@ export const communes: Commune[] = [
     name: 'Flémalle',
     postalCode: '4400',
     description: 'Serrurier automobile à Flémalle. Intervention rapide pour ouverture de portière, reproduction de clés et réparation de serrures auto.',
-    specificInfo: 'Je dessers Flémalle-Haute, Flémalle-Grande, Mons-lez-Liège et tous les villages de l\'entité.',
+    specificInfo: 'Nous desservons Flémalle-Haute, Flémalle-Grande, Mons-lez-Liège et tous les villages de l\'entité.',
     interventionTime: '20-25 minutes',
     serviceArea: 'Flémalle et toutes les entités'
   },
@@ -96,7 +96,7 @@ export const communes: Commune[] = [
     name: 'Angleur',
     postalCode: '4031',
     description: 'Serrurier automobile à Angleur. Service professionnel de reproduction de clés, ouverture de véhicules et réparation de serrures auto.',
-    specificInfo: 'Je couvre Angleur, Sart-Tilman et les quartiers de Liège Est.',
+    specificInfo: 'Nous couvrons Angleur, Sart-Tilman et les quartiers de Liège Est.',
     interventionTime: '15-20 minutes',
     serviceArea: 'Angleur et Liège Est'
   },
@@ -126,7 +126,7 @@ export const communes: Commune[] = [
     name: 'Beyne-Heusay',
     postalCode: '4610',
     description: 'Serrurier automobile à Beyne-Heusay. Service complet de serrurerie auto : clés, serrures, dépannage 24h/24.',
-    specificInfo: 'Je dessers Beyne-Heusay, Queue-du-Bois et Bellaire avec des délais d\'intervention courts.',
+    specificInfo: 'Nous desservons Beyne-Heusay, Queue-du-Bois et Bellaire avec des délais d\'intervention courts.',
     interventionTime: '20-25 minutes',
     serviceArea: 'Beyne-Heusay et entités'
   },
@@ -176,7 +176,7 @@ export const communes: Commune[] = [
     name: 'Rocourt',
     postalCode: '4000',
     description: 'Serrurier automobile à Rocourt. Service professionnel de serrurerie auto : clés perdues, ouverture de portière, programmation de clés.',
-    specificInfo: 'Je couvre Rocourt et les quartiers périphériques de Liège avec des délais courts.',
+    specificInfo: 'Nous couvrons Rocourt et les quartiers périphériques de Liège avec des délais courts.',
     interventionTime: '15-20 minutes',
     serviceArea: 'Rocourt et environs'
   },

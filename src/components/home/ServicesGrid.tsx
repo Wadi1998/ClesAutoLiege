@@ -30,14 +30,14 @@ export const ServicesGrid: React.FC = React.memo(() => {
         >
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold font-heading text-gray-900 dark:text-white mb-4">
-              Mes Services de Serrurerie Automobile
+              Nos Services de Serrurerie Automobile
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Expert en serrurerie automobile à Liège. Toutes marques, intervention 24/7.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {services.map((service) => {
               const Icon = iconMap[service.icon];
               return (
@@ -47,19 +47,21 @@ export const ServicesGrid: React.FC = React.memo(() => {
                   style={{ willChange: inView ? 'transform, opacity' : 'auto' }}
                 >
                   <Link href={`/services/${service.slug}`} prefetch={false}>
-                    <Card hover className="h-full">
+                    <Card hover className="h-full p-3 sm:p-6">
                       <div className="flex flex-col h-full">
-                        <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/20 rounded-2xl flex items-center justify-center mb-4">
-                          {Icon && <Icon className="w-8 h-8 text-orange-primary" />}
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-orange-100 dark:bg-orange-900/20 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
+                          {Icon && <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-orange-primary" />}
                         </div>
-                        <h3 className="text-xl font-bold font-heading text-gray-900 dark:text-white mb-3">
+                        <h3 className="text-sm sm:text-xl font-bold font-heading text-gray-900 dark:text-white mb-2 sm:mb-3 leading-tight line-clamp-2">
                           {service.title}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+                        <p className="hidden sm:block text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                           {service.shortDescription}
                         </p>
-                        <div className="flex items-center text-orange-primary font-semibold group-hover:gap-2 transition-all">
-                          En savoir plus <ArrowRight className="w-4 h-4 ml-1" />
+                        <div className="mt-auto flex items-center text-orange-primary font-semibold text-xs sm:text-base group-hover:gap-2 transition-all">
+                          <span className="hidden sm:inline">En savoir plus</span>
+                          <span className="sm:hidden">Voir</span>
+                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1" />
                         </div>
                       </div>
                     </Card>

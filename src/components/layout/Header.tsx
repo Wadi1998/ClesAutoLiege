@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
                 />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-xl font-bold font-heading text-white">
+                <h1 className="text-base sm:text-xl font-bold font-heading text-white">
                   Clés Auto Liège
                 </h1>
                 <p className="text-xs text-gray-300">Disponible 24/7</p>
@@ -109,13 +109,6 @@ export const Header: React.FC = () => {
                   )}
                 </AnimatePresence>
               </div>
-
-              <Link
-                href="/realisations"
-                className="text-gray-100 hover:text-orange-primary font-medium transition-colors"
-              >
-                Nos Réalisations
-              </Link>
 
             </nav>
 
@@ -195,7 +188,7 @@ export const Header: React.FC = () => {
                   {/* Services */}
                   <div>
                     <p className="px-4 py-2 text-sm font-semibold text-gray-300">
-                      Mes Services
+                    Nos Services
                     </p>
                     {services.map((service) => (
                       <Link
@@ -209,15 +202,6 @@ export const Header: React.FC = () => {
                       </Link>
                     ))}
                   </div>
-
-                  <Link
-                    href="/realisations"
-                    onClick={closeMobileMenu}
-                    className="block px-4 py-3 rounded-xl font-semibold text-white hover:bg-blue-medium/70 transition-colors"
-                    prefetch={false}
-                  >
-                    Nos Réalisations
-                  </Link>
                 </nav>
 
                 {/* CTA */}

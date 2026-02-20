@@ -130,7 +130,7 @@ export const StatsCounter: React.FC = React.memo(() => {
             Des Chiffres qui Parlent
           </h2>
           <p className="text-white/80 text-lg">
-            Ma réputation en quelques statistiques
+            Notre réputation en quelques statistiques
           </p>
         </motion.div>
 

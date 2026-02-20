@@ -10,7 +10,7 @@ export default function RealisationsPage() {
   const gallerySchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Nos Réalisations - Clés Auto Liège',
+    name: 'Nos Réalisations - Clef Auto Liège',
     description: 'Découvrez nos interventions réussies en serrurerie automobile à Liège et région',
     url: 'https://www.clesautoliege.be/realisations',
     breadcrumb: {

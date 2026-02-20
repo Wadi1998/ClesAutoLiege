@@ -12,7 +12,7 @@ import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, gen
 const slug = 'ouverture-portiere';
 
 export const metadata = generateMetadata({
-  title: `Ouverture de Portière Auto à Liège | Clés Auto Liège`,
+  title: `Ouverture de Portière Auto à Liège | Clef Auto Liège`,
   description: `Service d'ouverture de portière automobile à Liège. Clés oubliées à l'intérieur ? Intervention rapide 24/7. ☎️ 04 93 44 72 05`,
   keywords: ['ouverture portière Liège', 'clé oubliée voiture', 'serrurier auto urgence', 'ouverture auto'],
 });

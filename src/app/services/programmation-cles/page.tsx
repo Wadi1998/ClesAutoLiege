@@ -12,7 +12,7 @@ import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, gen
 const slug = 'programmation-cles';
 
 export const metadata = generateMetadata({
-  title: `Programmation Clés Électroniques à Liège | Clés Auto Liège`,
+  title: `Programmation Clés Électroniques à Liège | Clef Auto Liège`,
   description: `Service de programmation de clés électroniques et transpondeurs à Liège. Compatible toutes marques. ☎️ 04 93 44 72 05`,
   keywords: ['programmation clé électronique Liège', 'clé transpondeur', 'programmation immobiliseur', 'clé smart'],
 });

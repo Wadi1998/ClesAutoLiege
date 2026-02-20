@@ -12,7 +12,7 @@ import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, gen
 const slug = 'extraction-cles';
 
 export const metadata = generateMetadata({
-  title: `Extraction de Clés Cassées à Liège | Clés Auto Liège`,
+  title: `Extraction de Clés Cassées à Liège | Clef Auto Liège`,
   description: `Service d'extraction de clés cassées dans serrure automobile à Liège. Clé cassée coincée ? Intervention rapide. ☎️ 04 93 44 72 05`,
   keywords: ['extraction clé cassée Liège', 'clé coincée serrure', 'clé cassée voiture', 'retirer clé cassée'],
 });
