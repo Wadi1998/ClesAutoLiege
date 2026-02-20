@@ -89,7 +89,7 @@ export const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className={`bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden ${className}`}>
+    <div className={`bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden p-4 ${className}`}>
       {items.map((item, index) => (
         <AccordionItem
           key={item.id}

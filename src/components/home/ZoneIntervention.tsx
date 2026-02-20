@@ -17,11 +17,11 @@ export const ZoneIntervention: React.FC = () => {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-blue-dark dark:text-white">
-            J'Interviens Partout dans la Région de Liège
+            Nous Intervenons Partout dans la Région de Liège
           </h2>
           
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Basé à Liège, je me déplace rapidement dans toute la région pour vous dépanner où que vous soyez
+            Basés à Liège, nous nous déplaçons rapidement dans toute la région pour vous dépanner où que vous soyez
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export const ZoneIntervention: React.FC = () => {
 
             <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
               <strong className="text-orange-primary">Et toute la périphérie liégeoise !</strong> 
-              {' '}Vous ne voyez pas votre commune dans la liste ? Pas de souci, je couvre un large rayon autour de Liège.
+              {' '}Vous ne voyez pas votre commune dans la liste ? Pas de souci, nous couvrons un large rayon autour de Liège.
             </p>
 
             {/* Cards info */}
@@ -125,10 +125,10 @@ export const ZoneIntervention: React.FC = () => {
                 <Phone className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-blue-dark dark:text-white mb-1">
-                    Pas sûr si je couvre votre zone ?
+                    Pas sûr si nous couvrons votre zone ?
                   </h4>
                   <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
-                    Appelez-moi pour vérifier, je vous le confirme immédiatement
+                    Appelez-nous pour vérifier, nous vous le confirmons immédiatement
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2">
                     <a
@@ -149,16 +149,6 @@ export const ZoneIntervention: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Message final */}
-        <div className="mt-16 text-center bg-gradient-to-r from-blue-dark to-blue-medium dark:from-blue-medium dark:to-blue-dark rounded-2xl p-8 md:p-12 text-white shadow-xl">
-          <h3 className="text-2xl md:text-3xl font-bold font-heading mb-4">
-            Service Local, Expertise Professionnelle
-          </h3>
-          <p className="text-lg opacity-95 max-w-3xl mx-auto">
-            Contrairement aux grandes enseignes, je connais parfaitement la région de Liège et je peux vous rejoindre rapidement, même dans les zones moins accessibles. Mon engagement : être à vos côtés quand vous en avez besoin.
-          </p>
         </div>
       </div>
     </section>

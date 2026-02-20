@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { Euro, CheckCircle, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Combien coûte une clé BMW à Liège ? Prix 2026 | Clés Auto Liège',
+  title: 'Combien coûte une clé BMW à Liège ? Prix 2026 | Clef Auto Liège',
   description: 'Prix détaillé pour une reproduction de clé BMW à Liège : 120-180€ selon le modèle. Intervention rapide, devis gratuit. Économisez par rapport au concessionnaire BMW.',
   keywords: ['prix clé bmw liège', 'reproduction clé bmw', 'coût clé bmw', 'clé bmw liège tarif'],
 };
@@ -146,7 +146,7 @@ export default function PrixCleBMWPage() {
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-white mb-1">Appel téléphonique</h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Vous m'appelez, je vous donne un devis précis selon votre modèle BMW
+                    Vous nous appelez, nous vous donnons un devis précis selon votre modèle BMW
                   </p>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function PrixCleBMWPage() {
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-white mb-1">Intervention rapide</h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Je me déplace chez vous ou sur votre lieu de stationnement en moins de 30 minutes
+                    Nous nous déplaçons chez vous ou sur votre lieu de stationnement en moins de 30 minutes
                   </p>
                 </div>
               </div>

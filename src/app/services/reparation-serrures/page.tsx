@@ -12,7 +12,7 @@ import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, gen
 const slug = 'reparation-serrures';
 
 export const metadata = generateMetadata({
-  title: `Réparation Serrures Auto à Liège | Clés Auto Liège`,
+  title: `Réparation Serrures Auto à Liège | Clef Auto Liège`,
   description: `Service de réparation de serrures automobile à Liège. Serrure endommagée ou bloquée ? Intervention rapide. ☎️ 04 93 44 72 05`,
   keywords: ['réparation serrure auto Liège', 'serrure voiture cassée', 'réparation portière', 'serrure bloquée'],
 });

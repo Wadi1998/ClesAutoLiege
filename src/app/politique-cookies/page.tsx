@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import { Cookie, Check, X } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Politique de Cookies | Clés Auto Liège',
-  description: 'Politique d\'utilisation des cookies sur le site Clés Auto Liège. Transparence totale sur les données collectées.',
+  title: 'Politique de Cookies | Clef Auto Liège',
+  description: 'Politique d\'utilisation des cookies sur le site Clef Auto Liège. Transparence totale sur les données collectées.',
 };
 
 export default function PolitiqueCookiesPage() {
