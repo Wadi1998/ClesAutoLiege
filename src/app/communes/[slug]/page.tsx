@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!commune) return {};
 
   return generateSEOMetadata({
-    title: `Serrurier Auto ${commune.name} | Clef Auto Liège - Dépannage 24/7`,
+    title: `Serrurier Auto ${commune.name} | Clés Auto Liège - Dépannage 24/7`,
     description: `${commune.description} Intervention en ${commune.interventionTime}. Toutes marques, devis gratuit. ☎️ 04 93 44 72 05`,
     keywords: [
       `serrurier auto ${commune.name}`,

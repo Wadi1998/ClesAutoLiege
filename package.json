@@ -1,7 +1,7 @@
 {
   "name": "clef-auto-liege",
   "version": "1.0.0",
-  "description": "Site web premium pour Clef Auto Liège - Serrurier automobile 24/7",
+  "description": "Site web premium pour Clés Auto Liège - Serrurier automobile 24/7",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -19,7 +19,7 @@ export const Footer: React.FC = React.memo(() => {
               <div className="relative w-14 h-14 flex items-center justify-center shrink-0">
                 <Image 
                   src="/images/LogoOK.png" 
-                  alt="Clef Auto Liège"
+                  alt="Clés Auto Liège"
                   fill
                   sizes="56px"
                   className="object-contain object-center translate-y-0.5"
@@ -28,7 +28,7 @@ export const Footer: React.FC = React.memo(() => {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold font-heading">Clef Auto Liège</h3>
+                <h3 className="text-xl font-bold font-heading">Clés Auto Liège</h3>
                 <p className="text-sm text-gray-400">Disponible 24h/24</p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export const Footer: React.FC = React.memo(() => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex justify-center items-center">
             <p className="text-gray-400 text-sm text-center">
-              © {currentYear} Clef Auto Liège. Tous droits réservés.
+              © {currentYear} Clés Auto Liège. Tous droits réservés.
             </p>
           </div>
         </div>

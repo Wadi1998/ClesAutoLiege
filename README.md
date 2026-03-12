@@ -1,11 +1,11 @@
-# 🔑 Clef Auto Liège - Site Web Premium
+# 🔑 Clés Auto Liège - Site Web Premium
 
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue)](https://www.typescriptlang.org/)
 [![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com)
 [![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 
-Site web professionnel ultra-optimisé pour **Clef Auto Liège**, expert en serrurerie automobile à Liège. Conçu pour dominer le SEO local et maximiser les conversions.
+Site web professionnel ultra-optimisé pour **Clés Auto Liège**, expert en serrurerie automobile à Liège. Conçu pour dominer le SEO local et maximiser les conversions.
 
 ## 🎯 Caractéristiques
 
@@ -177,7 +177,7 @@ Le fichier `.env.local` contient toutes les variables nécessaires :
 ```env
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=https://clefautoliege.be
-NEXT_PUBLIC_SITE_NAME="Clef Auto Liège"
+NEXT_PUBLIC_SITE_NAME="Clés Auto Liège"
 
 # Contact Information
 NEXT_PUBLIC_PHONE=0493447205
@@ -186,7 +186,7 @@ NEXT_PUBLIC_WHATSAPP=32493447205
 NEXT_PUBLIC_WHATSAPP_MESSAGE="Bonjour, j'ai besoin d'une intervention pour..."
 
 # Business Information
-NEXT_PUBLIC_BUSINESS_NAME="Clef Auto Liège"
+NEXT_PUBLIC_BUSINESS_NAME="Clés Auto Liège"
 NEXT_PUBLIC_SLOGAN="Votre partenaire de confiance à Liège - Intervention 24/7"
 
 # Google Business (à ajouter après création)
@@ -352,7 +352,7 @@ Pour toute question technique sur le code, créer une issue sur le repo GitHub.
 
 ## 📄 License
 
-© 2024-2026 Clef Auto Liège. Tous droits réservés.
+© 2024-2026 Clés Auto Liège. Tous droits réservés.
 
 Ce projet est propriétaire et ne peut être utilisé, copié ou distribué sans autorisation explicite.
 
