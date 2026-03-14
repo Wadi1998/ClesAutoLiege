@@ -21,7 +21,7 @@ export const generateMetadata = ({
   title,
   description,
   keywords = [],
-  ogImage = '/logo.png',
+  ogImage = '/images/LogoOK.png',
   ogType = 'website',
   canonical,
   noindex = false,
@@ -138,13 +138,13 @@ export const generateLocalBusinessSchema = () => {
     alternateName: ['Serrurier Auto Liège', 'Clés Auto Liège', 'Clés Voiture Liège'],
     image: {
       '@type': 'ImageObject',
-      url: `${siteUrl}/logo.png`,
+      url: `${siteUrl}/images/LogoOK.png`,
       width: 512,
       height: 512,
     },
     logo: {
       '@type': 'ImageObject',
-      url: `${siteUrl}/logo.png`,
+      url: `${siteUrl}/images/LogoOK.png`,
       width: 512,
       height: 512,
     },
@@ -373,8 +373,8 @@ export const generateOrganizationSchema = () => {
     logo: {
       '@type': 'ImageObject',
       '@id': `${siteUrl}/#logo`,
-      url: `${siteUrl}/logo.png`,
-      contentUrl: `${siteUrl}/logo.png`,
+      url: `${siteUrl}/images/LogoOK.png`,
+      contentUrl: `${siteUrl}/images/LogoOK.png`,
       width: 512,
       height: 512,
       caption: 'Clés Auto Liège - Logo',
@@ -382,7 +382,7 @@ export const generateOrganizationSchema = () => {
     image: {
       '@type': 'ImageObject',
       '@id': `${siteUrl}/#logo`,
-      url: `${siteUrl}/logo.png`,
+      url: `${siteUrl}/images/LogoOK.png`,
       width: 512,
       height: 512,
     },
@@ -455,7 +455,7 @@ export const generateReviewSchema = (reviews: Array<{ author: string; rating: nu
     itemReviewed: {
       '@type': 'LocalBusiness',
       name: 'Clés Auto Liège',
-      image: `${siteUrl}/logo.png`,
+      image: `${siteUrl}/images/LogoOK.png`,
       telephone: '+32493447205',
       address: {
         '@type': 'PostalAddress',
@@ -492,7 +492,7 @@ export const generateProfessionalServiceSchema = () => {
     '@type': 'ProfessionalService',
     '@id': `${siteUrl}/#professionalservice`,
     name: 'Clés Auto Liège - Serrurier Automobile',
-    image: `${siteUrl}/logo.png`,
+    image: `${siteUrl}/images/LogoOK.png`,
     description: 'Service professionnel de serrurerie automobile disponible 24/7 à Liège et environs.',
     priceRange: '€€',
     telephone: '+32493447205',
