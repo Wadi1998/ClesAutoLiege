@@ -94,7 +94,7 @@ export const GoogleReviewsLive: React.FC = () => {
     : placeData.rating.toFixed(1);
   const googleReviewsUrl =
     process.env.NEXT_PUBLIC_GOOGLE_BUSINESS_URL ||
-    'https://www.google.com/search?sa=X&sca_esv=ebc9003c0e8ff0d8&hl=fr-BE&biw=1745&bih=866&sxsrf=ANbL-n7ZDGqLaWOa-8DkKY5iL6aOU4PWwg:1771189249422&q=Cl%C3%A9s%20Auto%20Li%C3%A8ge%20-%20cl%C3%A9%20voiture%20li%C3%A8ge%20Avis&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxI2NbA0MbE0szQ0N7IwNTYwNzE12MDI-IpRxznn8MpiBcfSknwFn8zDK9JTFXQVkoFiCmX5mSWlRakKORBRx7LM4kWsJCkHACIsTTV4AAAA&rldimm=5094496917285307450&tbm=lcl&ved=0CEkQ5foLahcKEwjQ0OuOstySAxUAAAAAHQAAAAAQCg#lkt=LocalPoiReviews&arid=Ci9DQUlRQUNvZENodHljRjlvT21GUldtNW5VbkZ3WXkxNVNFcG1kRXB4VkU5T2EwRRAB';
+    'https://maps.google.com/?cid=5094496917285307450';
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-orange-50 to-white dark:from-gray-800 dark:to-gray-900">
