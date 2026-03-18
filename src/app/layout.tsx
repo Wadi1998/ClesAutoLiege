@@ -108,7 +108,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Clés Auto Liège" />
-        <link rel="icon" href="/cles-auto.ico" />
+        <link rel="icon" href="/cles1.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/LogoOK.png" />
         
         {/* Microsoft Meta Tags */}
