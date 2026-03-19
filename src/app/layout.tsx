@@ -47,14 +47,22 @@ export const metadata: Metadata = {
       '/images/LogoOK.png',
     ],
   },
+  /**
+   * Favicon et icônes explicites :
+   * - favicon.ico (classique)
+   * - favicon.png (192x192 depuis cles1.png)
+   * - LogoOK.png reste utilisé pour les grosses tailles / Apple touch
+   */
   icons: {
     icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon.png', type: 'image/png', sizes: '192x192' },
       { url: '/images/LogoOK.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
       { url: '/images/LogoOK.png', sizes: '512x512', type: 'image/png' },
     ],
-    shortcut: '/images/LogoOK.png',
+    shortcut: '/favicon.ico',
   },
   other: {
     'author': 'Clés Auto Liège',
@@ -108,7 +116,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Clés Auto Liège" />
-        <link rel="icon" href="/cles1.png" type="image/png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/images/LogoOK.png" />
         
         {/* Microsoft Meta Tags */}
