@@ -4,59 +4,69 @@
   "description": "Expert en serrurerie automobile à Liège. Intervention rapide 24h/24 et 7j/7. Reproduction clés, ouverture portière, dépannage urgence.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#1F2937",
   "theme_color": "#FF6B35",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/images/LogoOK.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
     },
     {
-      "src": "/images/LogoOK.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "screenshots": [
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
     {
-      "src": "/images/LogoOK.png",
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "form_factor": "narrow"
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "categories": ["business", "automotive", "utilities"],
-  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
   "lang": "fr-BE",
   "dir": "ltr",
   "scope": "/",
   "prefer_related_applications": false,
-  "related_applications": [],
   "shortcuts": [
     {
       "name": "Appeler maintenant",
       "short_name": "Appel",
       "description": "Contactez-nous pour une intervention rapide",
       "url": "/",
-      "icons": [{ "src": "/images/LogoOK.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     },
     {
       "name": "Nos Services",
       "short_name": "Services",
       "description": "Découvrez tous nos services",
       "url": "/services/reproduction-cles",
-      "icons": [{ "src": "/images/LogoOK.png", "sizes": "192x192" }]
-    }
-  ],
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
-  "protocol_handlers": [
-    {
-      "protocol": "tel",
-      "url": "tel:+32493447205"
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
     }
   ]
 }

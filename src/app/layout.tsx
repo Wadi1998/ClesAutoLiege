@@ -48,21 +48,24 @@ export const metadata: Metadata = {
     ],
   },
   /**
-   * Favicon et icônes explicites :
-   * - favicon.ico (classique)
-   * - favicon.png (192x192 depuis cles1.png)
-   * - LogoOK.png reste utilisé pour les grosses tailles / Apple touch
+   * Favicon et icônes explicites pour Google Search et navigateurs :
+   * - favicon.ico (32x32 PNG)
+   * - Différentes tailles PNG pour compatibilité maximale
+   * - icon-512x512.png pour Apple touch et PWA
    */
   icons: {
     icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/favicon.png', type: 'image/png', sizes: '192x192' },
-      { url: '/images/LogoOK.png', sizes: '512x512', type: 'image/png' },
+      { url: '/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/icon-192x192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512x512.png', type: 'image/png', sizes: '512x512' },
     ],
     apple: [
-      { url: '/images/LogoOK.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
     ],
-    shortcut: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
   },
   other: {
     'author': 'Clés Auto Liège',
@@ -116,12 +119,14 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Clés Auto Liège" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/LogoOK.png" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/icon-512x512.png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/icon-192x192.png" sizes="192x192" />
         
         {/* Microsoft Meta Tags */}
         <meta name="msapplication-TileColor" content="#FF6B35" />
-        <meta name="msapplication-TileImage" content="/images/LogoOK.png" />
+        <meta name="msapplication-TileImage" content="/icon-512x512.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         
         {/* Preconnect pour améliorer les performances */}
