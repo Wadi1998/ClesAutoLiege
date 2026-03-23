@@ -28,7 +28,7 @@ export const globalFAQs: FAQ[] = [
   {
     id: 'g4',
     question: 'Comment se passe le paiement ?',
-    answer: 'Le paiement se fait après l\'intervention, une fois que vous êtes satisfait du service. Nous acceptons le cash et le Bancontact. Nous vous donnons le prix exact par téléphone avant notre intervention, pas de surprise ni de frais cachés.',
+    answer: 'Le paiement se fait après l\'intervention, une fois que vous êtes satisfait du service. Nous vous donnons le prix exact par téléphone avant notre intervention, pas de surprise ni de frais cachés.',
     category: 'payment'
   },
   {
@@ -139,7 +139,7 @@ export const serviceFAQs: { [key: string]: FAQ[] } = {
     {
       id: 'du4',
       question: 'Puis-je payer après l\'intervention ?',
-      answer: 'Oui, le paiement se fait toujours après l\'intervention, une fois que tout est résolu et que vous êtes satisfait. Nous acceptons le cash et le Bancontact. En urgence, votre priorité est de récupérer l\'accès à votre véhicule, on règle les détails après.',
+      answer: 'Oui, le paiement se fait toujours après l\'intervention, une fois que tout est résolu et que vous êtes satisfait. En urgence, votre priorité est de récupérer l\'accès à votre véhicule, on règle les détails après.',
       category: 'depannage-urgence'
     }
   ],

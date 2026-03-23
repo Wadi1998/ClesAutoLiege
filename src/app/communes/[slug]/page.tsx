@@ -154,7 +154,7 @@ export default function CommunePage({ params }: Props) {
                     'Techniques non destructives : votre véhicule reste intact',
                     'Devis gratuit et transparent par téléphone',
                     'Matériel professionnel de dernière génération',
-                    'Paiement après intervention (cash ou Bancontact)'
+                    'Paiement après intervention'
                   ].map((point, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
